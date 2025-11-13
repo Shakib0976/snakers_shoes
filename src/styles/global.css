@@ -5,12 +5,18 @@
     --btn-primary: #f97316;
     --Nav-bg-primary:#000000;
     --Nav-bg-secondary:#ffffff;
-    --Nav-bg-base:#eaedef;
+    --Nav-bg-base:#f3f4f6;
     --hover-secondary:#393c42;
     --text-primary: #ffffff;
     --text-secondary: #000000;
     --Nav-text-secondary:#f97316;
     --Nav-border-primary :#212327;  
+    --Hero-Hover-text : #ffffff;
+    --Hero-primary-text : #6b7280;;
+    --Hero-secondary-text : #9ca3af;
+    --hero-title-text: #4B5563;
+    --secondary-bg: #4B5563
+;
 
    
 }
@@ -49,3 +55,17 @@
 .text-secondary {
     color: var(--text-secondary);
 }
+.Hero-hover-text:hover {
+    color: var(--Hero-Hover-text);
+}
+.Hero-hover-text {
+    color: var(--Hero-Hover-text);
+}
+.Hero-secondary-text {
+    color: var(--Hero-secondary-text);
+}
+
+.Hero-title-text {
+    color: var(--hero-title-text);
+}
+

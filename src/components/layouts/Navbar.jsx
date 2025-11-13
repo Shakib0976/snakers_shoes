@@ -13,6 +13,8 @@ import {
     CircleIcon,
     Navigation,
     Globe,
+    ChevronDown,
+    ChevronUp,
 } from "lucide-react";
 import {
     NavigationMenu,
@@ -83,9 +85,9 @@ const Navbar = () => {
                         {/* 🌐 Main Button */}
                         <button
                             onClick={toggleDropdown}
-                            className="flex items-center hover-button gap-1 px-3 py-1 text-sm border rounded-md bg-primary transition-colors"
+                            className="flex items-center hover-button gap-1 px-3 py-1 text-sm bg-primary transition-colors"
                         >
-                            <Globe size={16} /> {language === "EN" ? "English" : "বাংলা"}
+                           {open ? <ChevronUp size={16} />  : <ChevronDown size={16} />  }  {language === "EN" ? "English" : "বাংলা"}
                         </button>
 
                         {/* Dropdown Menu */}
@@ -157,7 +159,7 @@ const Navbar = () => {
                                 <NavigationMenuContent>
                                     <ul className="grid gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                                         <li>
-                                            <Link href="#" className="block p-2 hover:bg-gray-100 rounded-md">
+                                            <Link href="#" className="block p-2 rounded-md">
                                                 Example Component 1
                                             </Link>
                                         </li>
@@ -196,7 +198,7 @@ const Navbar = () => {
                         </NavigationMenuList>
                     </NavigationMenu>
 
-                    <div className="hidden px-4 font-bold py-4 w-[40%] lg:flex bg-gray-100 justify-between items-center gap-6 text-sm rounded-lg">
+                    <div className="hidden px-4 font-bold py-4 w-[40%] lg:flex nav-bg-base justify-between items-center gap-6 text-sm rounded-lg">
                         <div className="relative flex items-center flex-1">
                             <Search size={18} className="absolute left-3" />
                             <input

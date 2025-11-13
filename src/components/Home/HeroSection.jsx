@@ -1,8 +1,42 @@
 "use client";
 import Image from "next/image";
 import { Plus, ShoppingCart, Play } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function HeroSection() {
+    const shoes = [
+        {
+            id: 1,
+            image: "/man.png",
+            name: " Edge Shoes",
+            parts: [
+                { title: "Heel Part", img: "/man.png", top: "15%", left: "-8%" },
+                { title: "Shoe Lace ", img: "/man.png", top: "28%", left: "30%" },
+                { title: "Toe Cap ", img: "/man.png", bottom: "10%", left: "45%" },
+            ],
+        },
+        {
+            id: 2,
+            image: "/man2.png",
+            name: "Flex Pro",
+            parts: [
+                { title: "Heel ", img: "/man2.png", top: "5%", left: "35%" },
+                { title: "Lace", img: "/man2.png", top: "45%", left: "-10%" },
+                { title: "Toe Shield", img: "/man2.png", bottom: "12%", left: "48%" },
+            ],
+        },
+        {
+            id: 3,
+            image: "/man3.png",
+            name: " Glide X",
+            parts: [
+                { title: "Back", img: "/man3.png", top: "10%", left: "26%" },
+                { title: "Mid Lace", img: "/man3.png", top: "62%", left: "10%" },
+                { title: "Front", img: "/man3.png", bottom: "9%", left: "60%" },
+            ],
+        },
+    ];
 
 
     const trendmark = [
@@ -14,147 +48,138 @@ export default function HeroSection() {
         {
             id: "02",
             name: "Laced Joggers for Men",
-            color: "text-gray-400",
+            color: "Hero-secondary-text",
         },
         {
             id: "03",
             name: "Barley Textured Panelled Shoes",
-            color: "text-gray-400",
+            color: "Hero-secondary-text",
         },
         {
             id: "04",
             name: "Omax Lace-Up Sports Shoes",
-            color: "text-gray-400",
+            color: "Hero-secondary-text",
         },
     ];
 
+
+    // shoes slider 
+    const [current, setCurrent] = useState(0);
+
+    // Auto-slide every 4s
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % shoes.length);
+        }, 4000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const shoe = shoes[current];
+
     return (
-        <section className="relative w-11/12 pt-20 mx-auto bg-secondary overflow-hidden">
+        <section className="relative  w-11/12 pt-20 mx-auto bg-gray-100 overflow-hidden">
             {/* HEADER TEXT */}
             <div className="text-center px-4">
-                <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] font-extrabold leading-none tracking-tight">
+                <motion.h1
+                    className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] font-extrabold leading-none tracking-tight"
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 1,
+                        ease: [0.25, 0.1, 0.25, 1],
+                    }}
+                >
                     Trendmark
-                </h1>
-                <p className="text-base sm:text-lg text-gray-600 font-medium mt-2">
+                </motion.h1>
+                <p className="Hero-title-text sm:text-lg  font-medium mt-2 ">
                     Sneakers 2023 Limited Edition
                 </p>
             </div>
 
             {/* MAIN CONTENT */}
-            <div className="flex flex-col lg:flex-row justify-between items-center px-4 sm:px-8 lg:px-12 py-12 sm:py-16 gap-10 sm:gap-16">
+            <div className="flex flex-col lg:flex-row justify-between lg:-mt-20 items-center px-4 sm:px-8 lg:px-12 py-12 sm:pb-16 gap-10 sm:gap-16">
                 {/* RIGHT SIDE IMAGE + TAGS */}
-                <div className="relative w-full lg:w-1/2 flex justify-center items-center">
-                    {/* Curved orange line */}
-                    <svg
-                        className="absolute bottom-0 left-0 right-0 mx-auto w-[90%] max-w-[800px] h-[200px] sm:h-[300px] lg:h-[400px] pointer-events-none"
-                        viewBox="0 0 800 400"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M10 300 C300 100, 500 500, 790 300"
-                            stroke="#ff7849"
-                            strokeWidth="1"
-                            fill="transparent"
-                        />
-                    </svg>
-
-                    {/* Shoe Image */}
-                    <div className="h-[50vh] flex items-center justify-center">
-                        <Image
-                            src="/man.png"
-                            alt="Classic 2.5 Edge Shoes"
-                            width={1800}
-                            height={1200}
-                            priority
-                            className="w-full h-full object-cover max-w-[1800px] rounded-2xl"
-                        />
-                    </div>
-
-
-
-                    {/* Marker 1 */}
-                    <div className="absolute z-100 top-[15%] sm:top-[20%] -left-[8%] sm:-left-[10%] flex flex-col items-center">
-                        <div className="bg-secondary rounded-full shadow-lg p-1.5">
-                            <Plus size={14} className="" />
-                        </div>
-                        <div className="bg-secondary shadow-lg rounded-xl mt-2 w-32 sm:w-40 md:w-52 p-2 flex gap-2 items-center">
+                <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-[60vh] mx-auto flex items-center justify-center">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={shoe.id}
+                            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -30, scale: 0.95 }}
+                            transition={{ duration: 0.6 }}
+                            className="absolute inset-0"
+                        >
                             <Image
-                                src="/shoe.png"
-                                alt="Heel Part"
-                                width={40}
-                                height={40}
-                                className="rounded-lg"
+                                src={shoe.image}
+                                alt={shoe.name}
+                                fill
+                                className="object-contain"
+                                priority
                             />
-                            <div>
-                                <p className="text-xs sm:text-sm font-semibold">
-                                    Classic 2.5 Edge Shoes
-                                </p>
-                                <p className="text-[10px] sm:text-xs text-gray-500">Heel part</p>
-                            </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </AnimatePresence>
 
-                    {/* Marker 2 */}
-                    <div className="absolute z-100 top-[28%] left-[30%] flex flex-col items-center">
-                        <div className="bg-secondary rounded-full shadow-lg p-1.5">
-                            <Plus size={14} className="text-black" />
-                        </div>
-                        <div className="bg-secondary shadow-lg rounded-xl mt-2 w-32 sm:w-40 md:w-52 p-2 flex gap-2 items-center">
-                            <Image
-                                src="/shoe.png"
-                                alt="Shoe lace Part"
-                                width={40}
-                                height={40}
-                                className="rounded-lg"
-                            />
-                            <div>
-                                <p className="text-xs sm:text-sm font-semibold">
-                                    Classic 2.5 Edge Shoes
-                                </p>
-                                <p className="text-[10px] sm:text-xs text-gray-500">
-                                    Shoe lace Part
-                                </p>
+                    {/* Shoe Parts */}
+                    {shoe.parts.map((part, i) => (
+                        <motion.div
+                            key={part.title}
+                            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.8, y: -20 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="absolute z-50 hidden lg:flex flex-col items-center"
+                            style={{
+                                top: part.top,
+                                bottom: part.bottom,
+                                left: part.left,
+                            }}
+                        >
+                            <div className="bg-secondary rounded-full shadow-lg p-1.5">
+                                <Plus size={14} className="text-secondary" />
                             </div>
-                        </div>
-                    </div>
 
-                    {/* Marker 3 */}
-                    <div className="absolute z-100 bottom-[10%] left-[45%] sm:left-[50%] flex flex-col items-center">
-                        <div className="bg-secondary rounded-full shadow-lg p-1.5">
-                            <Plus size={14} className="" />
-                        </div>
-                        <div className="bg-secondary shadow-lg rounded-xl mt-2 w-32 sm:w-40 md:w-52 p-2 flex gap-2 items-center">
-                            <Image
-                                src="/shoe.png"
-                                alt="Toe cap Part"
-                                width={40}
-                                height={40}
-                                className="rounded-lg"
-                            />
-                            <div>
-                                <p className="text-xs sm:text-sm font-semibold">
-                                    Classic 2.5 Edge Shoes
-                                </p>
-                                <p className="text-[10px] sm:text-xs text-gray-500">
-                                    Toe cap Part
-                                </p>
+                            {/* Card with full-width hover button */}
+                            <div className="relative group bg-secondary shadow-lg rounded-xl mt-2 w-32 sm:w-35 overflow-hidden transition-all">
+                                {/* Content */}
+                                <div className="p-2 flex  items-center justify-between">
+                                    <Image
+                                        src={part.img}
+                                        alt={part.title}
+                                        width={40}
+                                        height={40}
+                                        className="rounded-lg"
+                                    />
+                                    <div>
+                                        <p className="text-xs sm:text-sm font-semibold">{shoe.name}</p>
+                                        <p className="text-[10px] sm:text-xs Hero-text-primary">{part.title}</p>
+                                    </div>
+                                </div>
+
+
+                                <div className="absolute bottom-0 left-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <button className="w-full bg-primary text-primary py-2 text-xs sm:text-sm font-semibold uppercase">
+                                        Shop Now
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    ))}
+
                 </div>
 
                 {/* LEFT SIDE TEXT */}
-                <div className="w-full lg:w-1/2 relative z-10">
-                    <div className="bg-primary text-primary px-6 sm:px-8 py-8 sm:py-10 flex flex-col justify-between items-start gap-6 lg:-mr-12 rounded-2xl lg:rounded-none">
+                <div className="w-full lg:w-1/2   relative z-10 lg:-mb-35 hidden lg:block">
+                    <div className="bg-primary rounded-2xl border text-primary px-6 sm:px-8 py-8 sm:py-10 flex flex-col justify-between items-start gap-6 lg:-mr-12  lg:rounded-none">
                         <div>
-                            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold">
-                                Classic 2.5 Edge Shoes
+                            {shoe.parts.map((part,) => ( <> <h2 className="text-xl w-full sm:text-2xl lg:text-3xl font-extrabold">
+                               {part.title}
                             </h2>
-                            <p className="uppercase text-xs text-gray-400 tracking-wide mt-1">
+                            </>))}
+                           
+                            <p className="uppercase text-xs Hero-secondary-text tracking-wide mt-1">
                                 Sneakers 2023 Limited Edition
                             </p>
-                            <p className="text-sm text-gray-300 mt-4 leading-relaxed">
+                            <p className="text-sm Hero-secondary-text mt-4 leading-relaxed">
                                 The InstaPump Fury was released in 1994. The shoe was lace-less
                                 and featured Reebok’s pump technology, a reduced midsole,
                                 Hexalite cushioning and a fully synthetic...
@@ -164,17 +189,17 @@ export default function HeroSection() {
                             </button>
                         </div>
 
-                        <div className="flex items-center gap-4 text-gray-400 text-xl">
-                            <button className="hover:text-white">♡</button>
-                            <button className="hover:text-white">↔</button>
-                            <button className="hover:text-white">👁</button>
+                        <div className="flex items-center gap-4 Hero-secondary-text text-xl">
+                            <button className="Hero-hover-text">♡</button>
+                            <button className="Hero-hover-text">↔</button>
+                            <button className="Hero-hover-text">👁</button>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* FOOTER BAR */}
-            <section className="w-full lg:-mt-22 bg-primary text-primary py-6 px-4 sm:px-8 lg:px-6 flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
+            <section className="w-full rounded-2xl lg:rounded-none  bg-primary text-primary py-6 px-4 sm:px-8 lg:px-6 flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
 
                 <div className="flex items-center gap-3">
                     <button className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full btn-primary text-primary">
@@ -188,7 +213,7 @@ export default function HeroSection() {
                 <div className="flex flex-wrap justify-center sm:justify-start items-start gap-6 sm:gap-10">
                     {trendmark.map((item) => (
                         <div key={item.id} className="text-primary text-center sm:text-left">
-                            <p className="text-xs text-gray-400 mb-1">{item.id}</p>
+                            <p className="text-xs Hero-secondary-text mb-1">{item.id}</p>
                             <p className="font-semibold">Trendmark</p>
                             <p className={`text-sm ${item.color}`}>
                                 {item.name.split(" ").slice(0, 3).join(" ")} <br />
@@ -201,15 +226,15 @@ export default function HeroSection() {
 
                 <div className="flex flex-col items-center lg:items-end text-center lg:text-right">
                     <div className="flex items-center gap-3 mb-2">
-                        <p className="text-xs font-semibold tracking-wide text-gray-400 uppercase">
+                        <p className="text-xs font-semibold tracking-wide Hero-secondary-text uppercase">
                             Sizes:
                         </p>
                         <div className="flex items-center gap-2">
                             <span className="w-6 h-6 flex items-center justify-center bg-secondary text-black text-xs font-bold rounded">
                                 34
                             </span>
-                            <span className="text-gray-400 text-xs">36</span>
-                            <span className="text-gray-400 text-xs">38</span>
+                            <span className="Hero-secondary-text text-xs">36</span>
+                            <span className="Hero-secondary-text text-xs">38</span>
                         </div>
                     </div>
 
@@ -218,7 +243,7 @@ export default function HeroSection() {
                         <p className="text-sm nev-text-secondary line-through">800.00 USD</p>
                     </div>
 
-                    <button className="flex items-center gap-2 nev-text-secondary  transition-colors px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-primary text-xs sm:text-sm font-bold uppercase shadow-[0_0_20px_rgba(255,100,50,0.5)] mt-3 sm:mt-4">
+                    <button className="flex items-center gap-2 nev-text-secondary  transition-colors px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-primary text-xs sm:text-sm font-bold uppercase hover:shadow-[0_0_20px_rgba(255,100,50,0.5)] border mt-3 sm:mt-4">
                         Add to Cart
                         <ShoppingCart size={16} />
                     </button>
