@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --btn-primary: #f97316;
+    --Nav-bg-primary:#000000;
+    --Nav-bg-secondary:#ffffff;
+    --Nav-bg-base:#eaedef;
+    --hover-secondary:#393c42;
+    --text-primary: #ffffff;
+    --text-secondary: #000000;
+    --Nav-text-secondary:#f97316;
+    --Nav-border-primary :#212327;  
+
+   
+}
+
+
+
+.btn-primary {
+    background: var(--btn-primary);
+}
+.hover-button:hover {
+  color: var(--btn-primary);
+}
+.hover-secondary:hover{
+    background-color: var(--hover-secondary);
+}
+
+.bg-primary {
+    background: var(--Nav-bg-primary);
+}
+.bg-secondary {
+    background: var(--Nav-bg-secondary);
+}
+.text-primary {
+    color: var(--text-primary);
+}
+.nev-text-secondary {
+    color: var(--Nav-text-secondary);
+}
+.nav-bg-base {
+    background: var(--Nav-bg-base);
+}
+.nav-border-primary {
+    border-color: var(--Nav-border-primary);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
