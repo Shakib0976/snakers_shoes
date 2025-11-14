@@ -15,7 +15,9 @@
     --Hero-primary-text : #6b7280;;
     --Hero-secondary-text : #9ca3af;
     --hero-title-text: #4B5563;
-    --secondary-bg: #4B5563
+    --bg-secondary: #f3f4f6;
+    --hero-hover-button :rgba(255, 136, 0, 0.5);
+    --hero-secondary-button :rgba(255, 255, 255, 0.15);
 ;
 
    
@@ -67,5 +69,12 @@
 
 .Hero-title-text {
     color: var(--hero-title-text);
+}
+
+.Hero-secondary-button {
+    background: var(--hero-secondary-button);
+}
+.bg-secondary {
+    background: var(--bg-secondary);
 }
 
