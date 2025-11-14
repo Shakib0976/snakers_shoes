@@ -329,7 +329,7 @@ export default function FeaturedCollections() {
                 </div>
 
                 {/* Slider Controls */}
-                <div className="flex justify-between items-center mb-8">
+                <div className="flex justify-between items-center mt-3 mb-8">
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}

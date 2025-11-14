@@ -21,11 +21,31 @@
     --hero-secondary-button: rgba(255, 255, 255, 0.15);
     --featured-bg-gradient: linear-gradient(to bottom right, #f8fafc, #f3f4f6);
     --text-Title-secondary: linear-gradient(to right, #111827, #1f2937, #4b5563);
-    ;
+    --discount-bg: linear-gradient(135deg, #0f172a, #581c87, #0f172a);
+    --discount-bg-secondary: linear-gradient(90deg, #fb923c, #f87171);
+    --Button-bg-secondary:linear-gradient(90deg, #f97316, #ef4444);
+    --discount-text-primary:#fb923c;
+    --discount-text-secondary: #9ca3af;
 
 
 }
 
+ 
+.discount-text-secondary {
+    color: var(--discount-text-secondary);}
+.discount-text-primary {
+    color: var(--discount-text-primary);
+}
+.Button-bg-secondary {
+    background: var(--Button-bg-secondary);}
+.discount-bg-secondary {
+    background: var(--discount-bg-secondary);
+    -webkit-background-clip: text;
+}
+
+.discount-banner-bg {
+    background: var(--discount-bg);
+}
 
 .secondary-title {
     background: var(--text-Title-secondary);
