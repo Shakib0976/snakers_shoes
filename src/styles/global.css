@@ -26,11 +26,68 @@
     --Button-bg-secondary:linear-gradient(90deg, #f97316, #ef4444);
     --discount-text-primary:#fb923c;
     --discount-text-secondary: #9ca3af;
+    --badge1-bg:linear-gradient(to right, #f97316, #ef4444);
+    --badge2-bg:linear-gradient(to right, #a855f7, #ec4899);
+    --badge3-bg:linear-gradient(to right, #ef4444, #f97316);
+    --badge4-bg:linear-gradient(to right, #22c55e, #10b981);
+    --badge5-bg:linear-gradient(to right, #3b82f6, #06b6d4);
+    --title-text-gradient: linear-gradient(to right, #f97316, #ef4444);
+    --image-primary-bg : linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+    --tranding-secondry-text :  #111827;
+    --tranding-primary-text :  #4b5563;
+    --tranding-base-text :  #6b7280;
+    --Collections-primary-bg: #eab308;
+    --Footer-border: #e5e7eb;
+    --footer-text-primary: #4b5563;
+    --footer-text-secondary: #111827 ;
 
 
 }
 
- 
+
+.footer-text-secondary {
+    color: var(--footer-text-secondary);}
+.footer-text-primary {
+    color: var(--footer-text-primary);}
+.footer-border {
+    border-color: var(--Footer-border);}
+
+.collections-primary-bg {
+    background: var(--Collections-primary-bg);}
+
+.treanding-base-text {
+    color: var(--tranding-base-text);}
+
+.treanding-primary-text {
+    color: var(--tranding-primary-text);}
+
+.tranding-secondry-text {
+    color: var(--tranding-secondry-text);}
+
+.img-primary-bg {
+    background: var(--image-primary-bg);}
+
+
+.title-bg-gradient {
+    background: var(--title-text-gradient);
+}
+.title_text-gradient {
+    background: var(--title-text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;}
+
+.badge5-bg {
+    background: var(--badge5-bg);}
+
+.badge4-bg {
+    background: var(--badge4-bg);}
+  
+.badge3-bg {
+    background: var(--badge3-bg);}
+.badge2-bg {
+    background: var(--badge2-bg);}
+.badge1-bg {
+    background: var(--badge1-bg);}
 .discount-text-secondary {
     color: var(--discount-text-secondary);}
 .discount-text-primary {
@@ -119,4 +176,8 @@
 
 .bg-secondary {
     background: var(--bg-secondary);
+}
+
+.Nav-bg-secondary {
+    background: var(--Nav-bg-secondary);
 }

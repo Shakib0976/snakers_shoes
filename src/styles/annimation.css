@@ -3,15 +3,13 @@
   display: inline-block;
 
   /* Black → Dark Gray → Light Gray → Dark Gray → Black */
-  background: linear-gradient(
-    90deg,
-    #000000 0%,
-    #2c2c2c 20%,
-    #3e3838 40%,
-    #524d4d 60%,
-    #2c2c2c 80%,
-    #000000 100%
-  );
+  background: linear-gradient(90deg,
+      #000000 0%,
+      #2c2c2c 20%,
+      #3e3838 40%,
+      #524d4d 60%,
+      #2c2c2c 80%,
+      #000000 100%);
 
   background-size: 200%;
   background-clip: text;
@@ -25,7 +23,21 @@
   0% {
     background-position: 200%;
   }
+
   100% {
     background-position: -200%;
+  }
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -176,8 +176,8 @@ export default function FeaturedCollections() {
 
     useEffect(() => {
         const updateVisibleCards = () => {
-            if (window.innerWidth < 768) setVisibleCards(1); 
-            else if (window.innerWidth < 1024) setVisibleCards(2); 
+            if (window.innerWidth < 768) setVisibleCards(1);
+            else if (window.innerWidth < 1024) setVisibleCards(2);
             else setVisibleCards(4);
         };
 
@@ -201,9 +201,8 @@ export default function FeaturedCollections() {
                     className="text-center mb-16"
                 >
 
-
-                    <h2 className="text-5xl sm:text-6xl font-extrabold mb-6 secondary-title bg-clip-text text-transparent">
-                        Featured Collections
+                    <h2 className="text-5xl font-bold tranding-secondry-text  mb-6">
+                         Featured <span className=" title_text-gradient bg-clip-text text-transparent">Collections</span>
                     </h2>
 
 
@@ -249,7 +248,7 @@ export default function FeaturedCollections() {
 
                                     {/* Featured Badge */}
                                     {item.featured && (
-                                        <div className="absolute top-4 left-4 bg-yellow-500 text-primary px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg flex items-center gap-1">
+                                        <div className="absolute top-4 left-4 collections-primary-bg text-primary px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg flex items-center gap-1">
                                             <Sparkles className="w-3 h-3" />
                                             Featured
                                         </div>
@@ -288,7 +287,7 @@ export default function FeaturedCollections() {
                                         {item.tags.map((tag, tagIndex) => (
                                             <span
                                                 key={tagIndex}
-                                                className="px-2 py-1 bg-secondary/80 backdrop-blur-sm text-xs font-medium text-gray-600 rounded-full border border-gray-200"
+                                                className="px-2 py-1 bg-secondary/80 backdrop-blur-sm text-xs font-medium treanding-primary-text rounded-full border border-gray-200"
                                             >
                                                 {tag}
                                             </span>
@@ -300,7 +299,7 @@ export default function FeaturedCollections() {
                                         <h3 className={`text-xl font-bold mb-2 bg-linear-to-r ${item.gradient} bg-clip-text text-transparent`}>
                                             {item.title}
                                         </h3>
-                                        <p className="text-gray-600 leading-relaxed mb-4 text-sm">
+                                        <p className="treanding-primary-text leading-relaxed mb-4 text-sm">
                                             {item.description}
                                         </p>
 
@@ -317,7 +316,7 @@ export default function FeaturedCollections() {
 
                                     {/* Hover Elements */}
                                     <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                        <div className="w-2 h-2 bg-linear-to-r from-yellow-400 to-orange-500 rounded-full animate-pulse"></div>
+                                        
                                     </div>
                                 </div>
 
@@ -338,7 +337,7 @@ export default function FeaturedCollections() {
                         onMouseLeave={() => setAutoPlay(true)}
                         className="w-12 h-12 flex items-center justify-center bg-secondary rounded-full shadow-lg hover:shadow-xl border border-gray-200 transition-all duration-300 group"
                     >
-                        <ArrowLeft className="w-5 h-5 text-gray-600 group-hover:text-orange-500 transition-colors" />
+                        <ArrowLeft className="w-5 h-5 treanding-primary-text group-hover:text-orange-500 transition-colors" />
                     </motion.button>
 
                     <div className="flex items-center gap-2">
@@ -362,7 +361,7 @@ export default function FeaturedCollections() {
                         onMouseLeave={() => setAutoPlay(true)}
                         className="w-12 h-12 flex items-center justify-center bg-secondary rounded-full shadow-lg hover:shadow-xl border border-gray-200 transition-all duration-300 group"
                     >
-                        <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-orange-500 transition-colors" />
+                        <ArrowRight className="w-5 h-5 treanding-primary-text group-hover:text-orange-500 transition-colors" />
                     </motion.button>
                 </div>
 
