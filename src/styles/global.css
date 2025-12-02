@@ -2,99 +2,234 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+
+    /* illustration bg color  */
+    --illustration-text-primary: #f59e0b;
+    /* Amber-500 */
+    /* Buttons */
     --btn-primary: #f97316;
+    /* Orange-500 */
+
+    /*  Navigation Backgrounds */
     --Nav-bg-primary: #000000;
+    /* Pure Black */
     --Nav-bg-secondary: #ffffff;
+    /* Pure White */
     --Nav-bg-base: #f3f4f6;
+    /* Gray-100 */
+
+    /*  Hover State */
     --hover-secondary: #393c42;
+    /* Dark Gray (Custom) */
+
+    /*  Text Colors */
     --text-primary: #ffffff;
+    /* White */
     --text-secondary: #000000;
+    /* Black */
     --Nav-text-secondary: #f97316;
+    /* Orange-500 */
+
+    /*  Borders */
     --Nav-border-primary: #212327;
+    /* Dark Charcoal */
+
+    /*  Hero Section Text */
     --Hero-Hover-text: #ffffff;
+    /* White */
     --Hero-primary-text: #6b7280;
-    ;
+    /* Gray-500 */
     --Hero-secondary-text: #9ca3af;
+    /* Gray-400 */
     --hero-title-text: #4B5563;
+    /* Gray-600 */
+
+    /*  Backgrounds */
     --bg-secondary: #f3f4f6;
+    /* Gray-100 */
+
+    /*  Hero Buttons */
     --hero-hover-button: rgba(255, 136, 0, 0.5);
+    /* Orange with 50% opacity */
     --hero-secondary-button: rgba(255, 255, 255, 0.15);
-    --featured-bg-gradient: linear-gradient(to bottom right, #f8fafc, #f3f4f6);
-    --text-Title-secondary: linear-gradient(to right, #111827, #1f2937, #4b5563);
-    --discount-bg: linear-gradient(135deg, #0f172a, #581c87, #0f172a);
-    --discount-bg-secondary: linear-gradient(90deg, #fb923c, #f87171);
-    --Button-bg-secondary:linear-gradient(90deg, #f97316, #ef4444);
-    --discount-text-primary:#fb923c;
+    /* Transparent White */
+
+    /* Gradients */
+    --featured-bg-gradient: linear-gradient(to bottom right,
+            #f8fafc,
+            /* Slate-50 */
+            #f3f4f6
+            /* Gray-100 */
+        );
+
+    --text-Title-secondary: linear-gradient(to right,
+            #111827,
+            /* Gray-900 */
+            #1f2937,
+            /* Gray-800 */
+            #4b5563
+            /* Gray-600 */
+        );
+
+    --discount-bg: linear-gradient(135deg,
+            #0f172a,
+            /* Slate-900 */
+            #581c87,
+            /* Purple-900 */
+            #0f172a
+            /* Slate-900 */
+        );
+
+    --discount-bg-secondary: linear-gradient(90deg,
+            #fb923c,
+            /* Orange-400 */
+            #f87171
+            /* Red-400 */
+        );
+
+    --Button-bg-secondary: linear-gradient(90deg,
+            #f97316,
+            /* Orange-500 */
+            #ef4444
+            /* Red-500 */
+        );
+
+    /*  Discount Text */
+    --discount-text-primary: #fb923c;
+    /* Orange-400 */
     --discount-text-secondary: #9ca3af;
-    --badge1-bg:linear-gradient(to right, #f97316, #ef4444);
-    --badge2-bg:linear-gradient(to right, #a855f7, #ec4899);
-    --badge3-bg:linear-gradient(to right, #ef4444, #f97316);
-    --badge4-bg:linear-gradient(to right, #22c55e, #10b981);
-    --badge5-bg:linear-gradient(to right, #3b82f6, #06b6d4);
-    --title-text-gradient: linear-gradient(to right, #f97316, #ef4444);
-    --image-primary-bg : linear-gradient(to bottom right, #f9fafb, #f3f4f6);
-    --tranding-secondry-text :  #111827;
-    --tranding-primary-text :  #4b5563;
-    --tranding-base-text :  #6b7280;
+    /* Gray-400 */
+    /*  Badges */
+    --badge1-bg: linear-gradient(to right, #f97316, #ef4444);
+    /* Orange-500 → Red-500 */
+    --badge2-bg: linear-gradient(to right, #a855f7, #ec4899);
+    /* Purple-500 → Pink-500 */
+    --badge3-bg: linear-gradient(to right, #ef4444, #f97316);
+    /* Red-500 → Orange-500 */
+    --badge4-bg: linear-gradient(to right, #22c55e, #10b981);
+    /* Green-500 → Emerald-500 */
+    --badge5-bg: linear-gradient(to right, #3b82f6, #06b6d4);
+    /* Blue-500 → Cyan-500 */
+
+    /*  Titles */
+    --title-text-gradient: linear-gradient(to right,
+            #f97316,
+            /* Orange-500 */
+            #ef4444
+            /* Red-500 */
+        );
+
+    /*  Image Background */
+    --image-primary-bg: linear-gradient(to bottom right,
+            #f9fafb,
+            /* Gray-50 */
+            #f3f4f6
+            /* Gray-100 */
+        );
+
+    /*  Trending Section Text */
+    --tranding-secondry-text: #111827;
+    /* Gray-900 */
+    --tranding-primary-text: #4b5563;
+    /* Gray-600 */
+    --tranding-base-text: #6b7280;
+    /* Gray-500 */
+
+    /*  Collections */
     --Collections-primary-bg: #eab308;
+    /* Yellow-500 */
+
+    /*  Footer */
     --Footer-border: #e5e7eb;
+    /* Gray-200 */
     --footer-text-primary: #4b5563;
-    --footer-text-secondary: #111827 ;
+    /* Gray-600 */
+    --footer-text-secondary: #111827;
+    /* Gray-900 */
 
 
 }
 
+ 
 
+.ilustaration-text-primary {
+    color: var(--illustration-text-primary);
+}
 .footer-text-secondary {
-    color: var(--footer-text-secondary);}
+    color: var(--footer-text-secondary);
+}
+
 .footer-text-primary {
-    color: var(--footer-text-primary);}
+    color: var(--footer-text-primary);
+}
+
 .footer-border {
-    border-color: var(--Footer-border);}
+    border-color: var(--Footer-border);
+}
 
 .collections-primary-bg {
-    background: var(--Collections-primary-bg);}
+    background: var(--Collections-primary-bg);
+}
 
 .treanding-base-text {
-    color: var(--tranding-base-text);}
+    color: var(--tranding-base-text);
+}
 
 .treanding-primary-text {
-    color: var(--tranding-primary-text);}
+    color: var(--tranding-primary-text);
+}
 
 .tranding-secondry-text {
-    color: var(--tranding-secondry-text);}
+    color: var(--tranding-secondry-text);
+}
 
 .img-primary-bg {
-    background: var(--image-primary-bg);}
+    background: var(--image-primary-bg);
+}
 
 
 .title-bg-gradient {
     background: var(--title-text-gradient);
 }
+
 .title_text-gradient {
     background: var(--title-text-gradient);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;}
+    -webkit-text-fill-color: transparent;
+}
 
 .badge5-bg {
-    background: var(--badge5-bg);}
+    background: var(--badge5-bg);
+}
 
 .badge4-bg {
-    background: var(--badge4-bg);}
-  
+    background: var(--badge4-bg);
+}
+
 .badge3-bg {
-    background: var(--badge3-bg);}
+    background: var(--badge3-bg);
+}
+
 .badge2-bg {
-    background: var(--badge2-bg);}
+    background: var(--badge2-bg);
+}
+
 .badge1-bg {
-    background: var(--badge1-bg);}
+    background: var(--badge1-bg);
+}
+
 .discount-text-secondary {
-    color: var(--discount-text-secondary);}
+    color: var(--discount-text-secondary);
+}
+
 .discount-text-primary {
     color: var(--discount-text-primary);
 }
+
 .Button-bg-secondary {
-    background: var(--Button-bg-secondary);}
+    background: var(--Button-bg-secondary);
+}
+
 .discount-bg-secondary {
     background: var(--discount-bg-secondary);
     -webkit-background-clip: text;

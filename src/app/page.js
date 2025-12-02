@@ -1,6 +1,7 @@
 import DiscountBanner from "@/components/Home/DiscountBanner";
 import FeaturedCollections from "@/components/Home/FeaturedCollections";
 import HeroSection from "@/components/Home/HeroSection";
+import HowtoBooking from "@/components/Home/HowToBooking";
 import TrendingSneakers from "@/components/Home/TrendingSneakers";
 
 const page = () => {
@@ -10,6 +11,7 @@ const page = () => {
        <FeaturedCollections></FeaturedCollections>
        <DiscountBanner></DiscountBanner>
        <TrendingSneakers></TrendingSneakers>
+       <HowtoBooking></HowtoBooking>
     </div>
   );
 };
