@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Sparkles, TrendingUp, Trophy } from 'lucide-react';
 
 const TrendingSneakers = () => {
   const [activeTab, setActiveTab] = useState('trending');
@@ -102,11 +103,11 @@ const TrendingSneakers = () => {
     }
   ];
 
-  const bestSellers = trendingSneakers.filter(item => 
+  const bestSellers = trendingSneakers.filter(item =>
     item.badge === "BEST SELLER" || item.rating >= 4.8
   );
 
-  const newArrivals = trendingSneakers.filter(item => 
+  const newArrivals = trendingSneakers.filter(item =>
     item.badge === "NEW" || item.id >= 5
   );
 
@@ -143,27 +144,26 @@ const TrendingSneakers = () => {
   };
 
   const ProductCard = ({ product, index }) => (
-    <div 
+    <div
       className="group  relative Nav-bg-secondary rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-      style={{ 
+      style={{
         animationDelay: `${index * 100}ms`,
         animation: isVisible ? `fadeInUp 0.6s ease-out ${index * 100}ms both` : 'none'
       }}
     >
       <div className="absolute top-4 left-4 z-10">
-        <span className={`px-3 py-1.5 rounded-full text-xs font-bold shadow-lg ${
-          product.badge === "BEST SELLER" ? "badge1-bg  text-primary" :
+        <span className={`px-3 py-1.5 rounded-full text-xs font-bold shadow-lg ${product.badge === "BEST SELLER" ? "badge1-bg  text-primary" :
           product.badge === "TRENDING" ? "badge2-bg text-primary" :
-          product.badge === "HOT" ? "badge3-bg text-primary" :
-          product.badge === "NEW" ? "badge4-bg text-primary" :
-          "badge5-bg  text-primary"
-        }`}>
+            product.badge === "HOT" ? "badge3-bg text-primary" :
+              product.badge === "NEW" ? "badge4-bg text-primary" :
+                "badge5-bg  text-primary"
+          }`}>
           {product.badge}
         </span>
       </div>
 
       <div className="absolute top-4 right-4 z-10">
-        <button 
+        <button
           type="button"
           className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-primary transition-all duration-300 group/heart"
           aria-label="Add to wishlist"
@@ -184,7 +184,7 @@ const TrendingSneakers = () => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        
       </div>
 
       <div className="p-6">
@@ -200,7 +200,7 @@ const TrendingSneakers = () => {
                   className={`w-3 h-3 ${i < Math.floor(product.rating) ? 'fill-current' : 'text-gray-300'}`}
                   viewBox="0 0 20 20"
                 >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               ))}
             </div>
@@ -236,7 +236,7 @@ const TrendingSneakers = () => {
         </div>
 
         <div className="flex space-x-2">
-          <button 
+          <button
             type="button"
             className="flex-1 bg-gray-900 text-primary py-3 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2"
           >
@@ -245,7 +245,7 @@ const TrendingSneakers = () => {
             </svg>
             <span>Add to Cart</span>
           </button>
-          <button 
+          <button
             type="button"
             className="w-12 h-12 border border-gray-300 rounded-lg flex items-center justify-center hover:border-gray-400 hover:bg-gray-50 transition-colors"
             aria-label="Quick view"
@@ -261,44 +261,56 @@ const TrendingSneakers = () => {
   );
 
   return (
-    <section ref={sectionRef} className="relative w-11/12 mx-auto py-20 overflow-hidden">
+    <section ref={sectionRef} className="relative w-11/12 mx-auto pt-20 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 title-bg-gradient rounded-full text-primary text-sm font-semibold mb-6 shadow-lg">
-            <span className="w-2 h-2 bg-secondary rounded-full mr-2 animate-pulse"></span>
-            Limited Time Offers
-          </div>
-          
+        
           <h2 className="text-5xl font-bold tranding-secondry-text  mb-6">
             Premium <span className=" title_text-gradient bg-clip-text text-transparent">Sneaker Collection</span>
           </h2>
-        
+
         </div>
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-gray-200">
-            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+          <div className=" p-2 ">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0">
               {[
-                { id: 'trending', label: '🔥 Trending Now', count: trendingSneakers.length },
-                { id: 'bestsellers', label: '🏆 Best Sellers', count: bestSellers.length },
-                { id: 'new', label: '🆕 New Arrivals', count: newArrivals.length }
+                {
+                  id: 'trending',
+                  label: 'Trending Now',
+                  count: trendingSneakers.length,
+                  icon: <TrendingUp className="w-5 h-5" />
+                },
+                {
+                  id: 'bestsellers',
+                  label: 'Best Sellers',
+                  count: bestSellers.length,
+                  icon: <Trophy className="w-5 h-5" />
+                },
+                {
+                  id: 'new',
+                  label: 'New Arrivals',
+                  count: newArrivals.length,
+                  icon: <Sparkles className="w-5 h-5" />
+                }
               ].map((tab) => (
                 <button
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 ${
-                    activeTab === tab.id
-                      ? 'title-bg-gradient text-primary shadow-lg transform scale-105'
-                      : 'treanding-primary-text hover:tranding-secondry-text  hover:bg-gray-100'
-                  }`}
+                  className={`px-6 py-4 font-semibold transition-all duration-300 relative flex items-center justify-center space-x-2 ${activeTab === tab.id
+                      ? 'text-black border-b-2 border-black'
+                      : 'text-gray-500 hover:text-black hover:bg-gray-50'
+                    }`}
                 >
-                  <span>{tab.label}</span>
-                  <span className={`px-2 py-1 rounded-full text-xs ${
-                    activeTab === tab.id ? 'bg-white/20 text-primary' : 'bg-gray-200 treanding-primary-text'
-                  }`}>
+                  <div className="flex items-center space-x-2">
+                    {tab.icon}
+                    <span>{tab.label}</span>
+                  </div>
+                  <span className={`px-2 py-1 rounded-full text-xs ${activeTab === tab.id ? 'bg-gray-100 text-gray-700' : 'bg-gray-200 text-gray-600'
+                    }`}>
                     {tab.count}
                   </span>
                 </button>
@@ -314,7 +326,7 @@ const TrendingSneakers = () => {
           ))}
         </div>
 
-      
+
       </div>
     </section>
   );

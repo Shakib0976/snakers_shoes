@@ -75,7 +75,7 @@ const sneakerSteps = [
         number: "03",
         icon: <ShoppingCart className="w-6 h-6" />,
         title: "Secure Checkout",
-        description: "Complete your purchase with multiple payment options and buyer protection.",
+        description: "Complete your purchase with multiple payment options and buyer protection.Order confirmation",
         features: [
             "Multiple payment methods",
             "SSL encrypted checkout",
@@ -95,7 +95,7 @@ const sneakerSteps = [
         number: "04",
         icon: <Truck className="w-6 h-6" />,
         title: "Fast Delivery",
-        description: "Get your sneakers delivered quickly with real-time tracking and premium packaging.",
+        description: "Get your sneakers delivered quickly with real-time tracking and premium packaging.Sneaker-safe packaging",
         features: [
             "Free shipping over $100",
             "Express delivery options",
@@ -123,22 +123,10 @@ const HowtoBooking = ({ variant = "modern" }) => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
-            className="relative max-w-7xl mx-auto px-4 py-16 lg:py-20"
+            className="relative max-w-11/12 mx-auto px-4 py-16 lg:py-20"
         >
 
             <div className="relative text-center mb-16">
-                <MotionDiv
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl title-bg-gradient backdrop-blur-sm border border-gray-200  shadow-sm mb-6"
-                >
-                    <div className="w-2 h-2  text-primary rounded-full animate-pulse" />
-                    <span className="text-sm  font-semibold text-primary">
-                        Simple {sneakerSteps.length}-Step Process
-                    </span>
-                </MotionDiv>
 
                 <MotionDiv
                     initial={{ opacity: 0, y: 30 }}
@@ -188,47 +176,6 @@ const HowtoBooking = ({ variant = "modern" }) => {
                     ))}
                 </div>
             </div>
-
-         
-
-          
-            <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 1 }}
-                className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6"
-            >
-                <div className="flex items-center gap-4 p-4 bg-white/50  rounded-xl backdrop-blur-sm">
-                    <div className="w-12 h-12 rounded-lg bg-linear-to-br from-green-400 to-emerald-500 flex items-center justify-center">
-                        <Truck className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold tranding-secondry-text ">Free Shipping</h4>
-                        <p className="text-sm treanding-primary-text ">On orders over $100</p>
-                    </div>
-                </div>
-                
-                <div className="flex items-center gap-4 p-4 bg-white/50  rounded-xl backdrop-blur-sm">
-                    <div className="w-12 h-12 rounded-lg bg-linear-to-br from-blue-400 to-cyan-500 flex items-center justify-center">
-                        <RefreshCw className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold tranding-secondry-text ">30-Day Returns</h4>
-                        <p className="text-sm treanding-primary-text ">Easy return policy</p>
-                    </div>
-                </div>
-                
-                <div className="flex items-center gap-4 p-4 bg-white/50 rounded-xl backdrop-blur-sm">
-                    <div className="w-12 h-12 rounded-lg bg-linear-to-br from-purple-400 to-pink-500 flex items-center justify-center">
-                        <ShieldCheck className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold tranding-secondry-text ">Authenticity Guaranteed</h4>
-                        <p className="text-sm treanding-primary-text ">100% verified sneakers</p>
-                    </div>
-                </div>
-            </MotionDiv>
         </MotionSection>
     );
 };

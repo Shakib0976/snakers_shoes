@@ -192,7 +192,7 @@ export default function FeaturedCollections() {
         <section className="w-full py-24 featured-section-bg relative overflow-hidden">
 
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="max-w-11/12 mx-auto px-6 relative z-10">
                 {/* Header Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
