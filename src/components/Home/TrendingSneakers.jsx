@@ -4,104 +4,14 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Sparkles, TrendingUp, Trophy } from 'lucide-react';
+import { trendingSneakers } from '@/server/PremiumSnakers';
 
 const TrendingSneakers = () => {
   const [activeTab, setActiveTab] = useState('trending');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  const trendingSneakers = [
-    {
-      id: 1,
-      name: "Nike Air Jordan 1 Retro High OG",
-      brand: "Nike",
-      price: "$180",
-      originalPrice: "$220",
-      discount: "18% off",
-      image: "/man.png",
-      rating: 4.8,
-      reviews: 1247,
-      badge: "HOT",
-      colors: ["#000000", "#FF0000", "#FFFFFF"],
-      sizes: [8, 9, 10, 11, 12],
-      category: "Lifestyle"
-    },
-    {
-      id: 2,
-      name: "Adidas Yeezy Boost 350 V2",
-      brand: "Adidas",
-      price: "$220",
-      originalPrice: "$250",
-      discount: "12% off",
-      image: "/man2.png",
-      rating: 4.7,
-      reviews: 892,
-      badge: "TRENDING",
-      colors: ["#F5F5F5", "#2D2D2D", "#8B4513"],
-      sizes: [7, 8, 9, 10, 11],
-      category: "Lifestyle"
-    },
-    {
-      id: 3,
-      name: "Nike Dunk Low Retro",
-      brand: "Nike",
-      price: "$110",
-      originalPrice: "$130",
-      discount: "15% off",
-      image: "/man3.png",
-      rating: 4.6,
-      reviews: 756,
-      badge: "BEST SELLER",
-      colors: ["#000000", "#FFFFFF", "#FF0000"],
-      sizes: [8, 9, 10, 11],
-      category: "Skateboarding"
-    },
-    {
-      id: 4,
-      name: "New Balance 550 White Green",
-      brand: "New Balance",
-      price: "$120",
-      originalPrice: "$140",
-      discount: "14% off",
-      image: "/man4.png",
-      rating: 4.5,
-      reviews: 634,
-      badge: "POPULAR",
-      colors: ["#FFFFFF", "#008000", "#000000"],
-      sizes: [8, 9, 10, 11, 12],
-      category: "Lifestyle"
-    },
-    {
-      id: 5,
-      name: "Air Jordan 4 Retro Military Black",
-      brand: "Nike",
-      price: "$210",
-      originalPrice: "$240",
-      discount: "13% off",
-      image: "/man5.png",
-      rating: 4.9,
-      reviews: 1103,
-      badge: "LIMITED",
-      colors: ["#000000", "#FFFFFF", "#808080"],
-      sizes: [8, 9, 10, 11],
-      category: "Lifestyle"
-    },
-    {
-      id: 6,
-      name: "Adidas Forum Low CL",
-      brand: "Adidas",
-      price: "$100",
-      originalPrice: "$120",
-      discount: "17% off",
-      image: "/man.png",
-      rating: 4.4,
-      reviews: 521,
-      badge: "NEW",
-      colors: ["#FFFFFF", "#000000", "#FFD700"],
-      sizes: [7, 8, 9, 10, 11],
-      category: "Basketball"
-    }
-  ];
+ 
 
   const bestSellers = trendingSneakers.filter(item =>
     item.badge === "BEST SELLER" || item.rating >= 4.8
@@ -145,7 +55,7 @@ const TrendingSneakers = () => {
 
   const ProductCard = ({ product, index }) => (
     <div
-      className="group  relative Nav-bg-secondary rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+      className="group  relative Nav-bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
       style={{
         animationDelay: `${index * 100}ms`,
         animation: isVisible ? `fadeInUp 0.6s ease-out ${index * 100}ms both` : 'none'
@@ -236,25 +146,14 @@ const TrendingSneakers = () => {
         </div>
 
         <div className="flex space-x-2">
-          <button
-            type="button"
+          <Link href={`/Product/${product.id}`}
             className="flex-1 bg-gray-900 text-primary py-3 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
             <span>Add to Cart</span>
-          </button>
-          <button
-            type="button"
-            className="w-12 h-12 border border-gray-300 rounded-lg flex items-center justify-center hover:border-gray-400 hover:bg-gray-50 transition-colors"
-            aria-label="Quick view"
-          >
-            <svg className="w-5 h-5 treanding-primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -302,7 +201,7 @@ const TrendingSneakers = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-6 py-4 font-semibold transition-all duration-300 relative flex items-center justify-center space-x-2 ${activeTab === tab.id
                       ? 'text-black border-b-2 border-black'
-                      : 'text-gray-500 hover:text-black hover:bg-gray-50'
+                      : 'text-gray-500 hover:text-black'
                     }`}
                 >
                   <div className="flex items-center space-x-2">

@@ -4,84 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Star, Zap, CheckCircle, TrendingUp, Heart, Shield } from "lucide-react";
 import ReviewCard from "../ui/ReviewCard";
-
-const testimonials = [
-    {
-        id: 1,
-        name: "Marcus T.",
-        role: "Sneaker Collector",
-        rating: 5,
-        comment: "The quality on these Jordans is insane! Perfect for my collection.",
-        purchase: "Air Jordan 1 Retro",
-        verified: true,
-        date: "2 weeks ago",
-        likes: 42
-    },
-    {
-        id: 2,
-        name: "Sarah L.",
-        role: "Fitness Enthusiast",
-        rating: 5,
-        comment: "Best running shoes I've ever owned. Lightweight and super comfortable!",
-        purchase: "Nike Vaporfly 3",
-        verified: true,
-        date: "1 month ago",
-        likes: 56
-    },
-    {
-        id: 3,
-        name: "Alex K.",
-        role: "Style Influencer",
-        rating: 4,
-        comment: "Love the colorway! Gets compliments every time I wear them.",
-        purchase: "New Balance 990v6",
-        verified: true,
-        date: "3 days ago",
-        likes: 89
-    },
-    {
-        id: 4,
-        name: "Jamie R.",
-        role: "Basketball Player",
-        rating: 5,
-        comment: "Perfect grip on court. My performance has definitely improved.",
-        purchase: "KD 16 EP",
-        verified: true,
-        date: "1 week ago",
-        likes: 31
-    },
-    {
-        id: 5,
-        name: "Taylor M.",
-        role: "Daily Walker",
-        rating: 5,
-        comment: "Worth every penny. All-day comfort is unmatched.",
-        purchase: "Hoka Clifton 9",
-        verified: true,
-        date: "2 months ago",
-        likes: 67
-    },
-    {
-        id: 6,
-        name: "Jordan P.",
-        role: "Sneakerhead",
-        rating: 4,
-        comment: "Fast shipping and authentic products. Will shop again!",
-        purchase: "Yeezy 350 V2",
-        verified: true,
-        date: "5 days ago",
-        likes: 44
-    }
-];
-const stats = [
-    { label: "Average Rating", value: "4.8", icon: Star, color: "text-amber-500" },
-    { label: "Verified Reviews", value: "2.4K+", icon: Shield, color: "text-emerald-500" },
-    { label: "Happy Customers", value: "10K+", icon: Heart, color: "text-red-500" },
-    { label: "Fast Shipping", value: "24h", icon: Zap, color: "text-blue-500" }
-];
-
-
-
+import { stats, testimonials } from "@/server/Review";
 
 
 const ReviewsGrid = () => {
@@ -124,7 +47,7 @@ const ReviewsGrid = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="bg-linear-to-br from-white to-gray-50 rounded-2xl p-6 text-center shadow-sm border border-gray-100 "
+                        className="bg-linear-to-br from-white to-gray-50 rounded-lg p-6 text-center shadow-sm border border-gray-100 "
                     >
                         <div className={`${stat.color} mb-2 flex justify-center`}>
                             <stat.icon className="w-8 h-8" />
@@ -153,7 +76,7 @@ const ReviewsGrid = () => {
                 transition={{ duration: 0.6 }}
                 className="text-center mt-12"
             >
-                <button className="group relative px-8 py-4 rounded-2xl tranding-secondry-text font-bold text-lg   transition-all duration-300 hover:scale-105">
+                <button className="group relative px-8 py-4 rounded-lg tranding-secondry-text font-bold text-lg   transition-all duration-300 hover:scale-105">
                     <span className="relative z-10  border-b-2 pb-2"> {`< Read All Reviews >`}</span>
                   
                 </button>

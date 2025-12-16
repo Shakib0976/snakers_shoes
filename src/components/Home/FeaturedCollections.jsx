@@ -3,155 +3,15 @@ import Image from "next/image";
 import { Flame, Footprints, Shovel, Star, ArrowRight, ArrowLeft, Sparkles, Clock, Users, TrendingUp, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { collections } from "@/server/ShoesCollection";
+import Link from "next/link";
 
 export default function FeaturedCollections() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [autoPlay, setAutoPlay] = useState(true);
 
-    const collections = [
-        {
-            title: "Running Shoes",
-            description: "Speed, stability, and performance built for athletes and daily runners.",
-            image: "/man.png",
-            icon: <Shovel className="w-6 h-6" />,
-            gradient: "from-blue-500 to-cyan-400",
-            bgGradient: "from-blue-50 to-cyan-50",
-            count: "24 Products",
-            rating: 4.8,
-            reviews: 1247,
-            discount: "20% OFF",
-            featured: true,
-            tags: ["Lightweight", "Breathable", "Durable"],
-        },
-        {
-            title: "Casual Sneakers",
-            description: "Comfort meets street style. Perfect for everyday wear with premium materials.",
-            image: "/man3.png",
-            icon: <Star className="w-6 h-6" />,
-            gradient: "from-green-500 to-emerald-400",
-            bgGradient: "from-green-50 to-emerald-50",
-            count: "18 Products",
-            rating: 4.6,
-            reviews: 892,
-            discount: "15% OFF",
-            featured: false,
-            tags: ["Comfort", "Style", "Versatile"],
-        },
-        {
-            title: "Limited Edition",
-            description: "Rare drops, premium builds, and exclusive designs for collectors and enthusiasts.",
-            image: "/man2.png",
-            icon: <Flame className="w-6 h-6" />,
-            gradient: "from-red-500 to-orange-400",
-            bgGradient: "from-red-50 to-orange-50",
-            count: "12 Products",
-            rating: 4.9,
-            reviews: 567,
-            discount: "Limited Stock",
-            featured: true,
-            tags: ["Exclusive", "Premium", "Collector"],
-        },
-        {
-            title: "Training Shoes",
-            description: "Grip, balance, and durability for intense workouts and professional sports.",
-            image: "/man4.png",
-            icon: <Footprints className="w-6 h-6" />,
-            gradient: "from-purple-500 to-pink-400",
-            bgGradient: "from-purple-50 to-pink-50",
-            count: "16 Products",
-            rating: 4.7,
-            reviews: 734,
-            discount: "25% OFF",
-            featured: false,
-            tags: ["Grip", "Support", "Flexible"],
-        },
-        {
-            title: "Basketball Shoes",
-            description: "High-performance footwear designed for court dominance and superior ankle support.",
-            image: "/man5.png",
-            icon: <Zap className="w-6 h-6" />,
-            gradient: "from-yellow-500 to-amber-400",
-            bgGradient: "from-yellow-50 to-amber-50",
-            count: "14 Products",
-            rating: 4.8,
-            reviews: 621,
-            discount: "30% OFF",
-            featured: true,
-            tags: ["Performance", "Support", "Court"],
-        },
-        {
-            title: "Running Shoes",
-            description: "Speed, stability, and performance built for athletes and daily runners.",
-            image: "/man.png",
-            icon: <Shovel className="w-6 h-6" />,
-            gradient: "from-blue-500 to-cyan-400",
-            bgGradient: "from-blue-50 to-cyan-50",
-            count: "24 Products",
-            rating: 4.8,
-            reviews: 1247,
-            discount: "20% OFF",
-            featured: true,
-            tags: ["Lightweight", "Breathable", "Durable"],
-        },
-        {
-            title: "Casual Sneakers",
-            description: "Comfort meets street style. Perfect for everyday wear with premium materials.",
-            image: "/man3.png",
-            icon: <Star className="w-6 h-6" />,
-            gradient: "from-green-500 to-emerald-400",
-            bgGradient: "from-green-50 to-emerald-50",
-            count: "18 Products",
-            rating: 4.6,
-            reviews: 892,
-            discount: "15% OFF",
-            featured: false,
-            tags: ["Comfort", "Style", "Versatile"],
-        },
-        {
-            title: "Limited Edition",
-            description: "Rare drops, premium builds, and exclusive designs for collectors and enthusiasts.",
-            image: "/man2.png",
-            icon: <Flame className="w-6 h-6" />,
-            gradient: "from-red-500 to-orange-400",
-            bgGradient: "from-red-50 to-orange-50",
-            count: "12 Products",
-            rating: 4.9,
-            reviews: 567,
-            discount: "Limited Stock",
-            featured: true,
-            tags: ["Exclusive", "Premium", "Collector"],
-        },
-        {
-            title: "Training Shoes",
-            description: "Grip, balance, and durability for intense workouts and professional sports.",
-            image: "/man4.png",
-            icon: <Footprints className="w-6 h-6" />,
-            gradient: "from-purple-500 to-pink-400",
-            bgGradient: "from-purple-50 to-pink-50",
-            count: "16 Products",
-            rating: 4.7,
-            reviews: 734,
-            discount: "25% OFF",
-            featured: false,
-            tags: ["Grip", "Support", "Flexible"],
-        },
-        {
-            title: "Basketball Shoes",
-            description: "High-performance footwear designed for court dominance and superior ankle support.",
-            image: "/man5.png",
-            icon: <Zap className="w-6 h-6" />,
-            gradient: "from-yellow-500 to-amber-400",
-            bgGradient: "from-yellow-50 to-amber-50",
-            count: "14 Products",
-            rating: 4.8,
-            reviews: 621,
-            discount: "30% OFF",
-            featured: true,
-            tags: ["Performance", "Support", "Court"],
-        },
 
 
-    ];
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % collections.length);
@@ -202,7 +62,7 @@ export default function FeaturedCollections() {
                 >
 
                     <h2 className="text-5xl font-bold tranding-secondry-text  mb-6">
-                         Featured <span className=" title_text-gradient bg-clip-text text-transparent">Collections</span>
+                        Featured <span className=" title_text-gradient bg-clip-text text-transparent">Collections</span>
                     </h2>
 
 
@@ -236,17 +96,17 @@ export default function FeaturedCollections() {
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 className="group relative"
                             >
-                                {/* Main Card */}
-                                <div className={`relative bg-linear-to-br ${item.bgGradient} rounded-3xl p-6 h-full border border-gray-200/50 overflow-hidden transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105`}>
 
-                                    {/* Discount Badge */}
+                                <div className={`relative bg-${item.bgGradient} rounded-lg p-6 h-full border border-gray-200/50 overflow-hidden transition-all duration-500 shadow-sm group-hover:scale-102`}>
+
+
                                     {item.discount && (
                                         <div className={`absolute top-4 right-4 bg-linear-to-r ${item.gradient} text-primary px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg`}>
                                             {item.discount}
                                         </div>
                                     )}
 
-                                    {/* Featured Badge */}
+
                                     {item.featured && (
                                         <div className="absolute top-4 left-4 collections-primary-bg text-primary px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg flex items-center gap-1">
                                             <Sparkles className="w-3 h-3" />
@@ -256,7 +116,7 @@ export default function FeaturedCollections() {
 
 
 
-                                    {/* Product Info */}
+
                                     <div className="relative z-10 mb-4">
                                         <div className="flex items-center justify-between mb-2">
                                             <span className="text-sm font-medium Hero-secondary-text">{item.count}</span>
@@ -264,7 +124,7 @@ export default function FeaturedCollections() {
                                         </div>
                                     </div>
 
-                                    {/* Image */}
+
                                     <div className="relative w-full h-40 mb-4">
                                         <motion.div
                                             whileHover={{ y: -10, rotate: -5 }}
@@ -278,11 +138,11 @@ export default function FeaturedCollections() {
                                             />
                                         </motion.div>
 
-                                        {/* Glow Effect */}
+
                                         <div className={`absolute inset-0 bg-linear-to-r ${item.gradient} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 rounded-full`}></div>
                                     </div>
 
-                                    {/* Tags */}
+
                                     <div className="flex flex-wrap gap-1 mb-4">
                                         {item.tags.map((tag, tagIndex) => (
                                             <span
@@ -294,7 +154,7 @@ export default function FeaturedCollections() {
                                         ))}
                                     </div>
 
-                                    {/* Content */}
+
                                     <div className="relative z-10">
                                         <h3 className={`text-xl font-bold mb-2 bg-linear-to-r ${item.gradient} bg-clip-text text-transparent`}>
                                             {item.title}
@@ -303,24 +163,25 @@ export default function FeaturedCollections() {
                                             {item.description}
                                         </p>
 
-                                        {/* CTA Button */}
-                                        <motion.button
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            className={`w-full flex items-center justify-center gap-2 text-sm font-semibold bg-linear-to-r ${item.gradient} text-primary px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group/btn`}
-                                        >
-                                            Explore Collection
-                                            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                                        </motion.button>
+                                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                            <Link href={`/Product/${item.id}`}
+                                              
+                                                className={`w-full flex items-center justify-center gap-2 text-sm font-semibold bg-linear-to-r ${item.gradient} text-primary px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group/btn`}
+                                            >
+                                                Explore Collection
+                                                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                                            </Link>
+                                        </motion.div>
+
                                     </div>
 
-                                    {/* Hover Elements */}
+
                                     <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                        
+
                                     </div>
                                 </div>
 
-                                {/* Outer Glow */}
+
                                 <div className={`absolute inset-0 bg-linear-to-r ${item.gradient} rounded-3xl blur-md opacity-0 group-hover:opacity-30 -z-10 transition-opacity duration-500`}></div>
                             </motion.div>
                         ))}
@@ -328,7 +189,9 @@ export default function FeaturedCollections() {
                 </div>
 
                 {/* Slider Controls */}
-                <div className="flex justify-between items-center mt-3 mb-8">
+
+                <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 flex justify-between items-center  z-20">
+
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -339,19 +202,6 @@ export default function FeaturedCollections() {
                     >
                         <ArrowLeft className="w-5 h-5 treanding-primary-text group-hover:text-orange-500 transition-colors" />
                     </motion.button>
-
-                    <div className="flex items-center gap-2">
-                        {collections.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => goToSlide(index)}
-                                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index
-                                    ? "bg-orange-500 w-8"
-                                    : "bg-gray-300 hover:bg-gray-400"
-                                    }`}
-                            />
-                        ))}
-                    </div>
 
                     <motion.button
                         whileHover={{ scale: 1.05 }}
@@ -364,6 +214,19 @@ export default function FeaturedCollections() {
                         <ArrowRight className="w-5 h-5 treanding-primary-text group-hover:text-orange-500 transition-colors" />
                     </motion.button>
                 </div>
+
+                {/* Dots Underneath – kept same */}
+                <div className="flex justify-center items-center gap-2 mt-3 mb-8">
+                    {collections.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => goToSlide(index)}
+                            className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? "bg-orange-500 w-8" : "bg-gray-300 hover:bg-gray-400"
+                                }`}
+                        />
+                    ))}
+                </div>
+
 
 
             </div>

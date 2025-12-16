@@ -2,18 +2,20 @@ import DiscountBanner from "@/components/Home/DiscountBanner";
 import FeaturedCollections from "@/components/Home/FeaturedCollections";
 import HeroSection from "@/components/Home/HeroSection";
 import HowtoBooking from "@/components/Home/HowToBooking";
+import SneakerMosaicGallery from "@/components/Home/ModernGellary";
 import ReviewsGrid from "@/components/Home/ReviewGrid";
 import TrendingSneakers from "@/components/Home/TrendingSneakers";
 
 const page = () => {
   return (
     <div className="bg-secondary ">
-       <HeroSection></HeroSection>
-       <FeaturedCollections></FeaturedCollections>
-       <DiscountBanner></DiscountBanner>
-       <TrendingSneakers></TrendingSneakers>
-       <HowtoBooking></HowtoBooking>
-       <ReviewsGrid></ReviewsGrid>
+      <HeroSection></HeroSection>
+      <SneakerMosaicGallery></SneakerMosaicGallery>
+      <DiscountBanner></DiscountBanner>
+      <FeaturedCollections></FeaturedCollections>
+      <TrendingSneakers></TrendingSneakers>
+      <HowtoBooking></HowtoBooking>
+      <ReviewsGrid></ReviewsGrid>
     </div>
   );
 };

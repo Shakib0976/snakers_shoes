@@ -15,8 +15,8 @@ const ReviewCard = ({ review, index }) => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative"
             >
-                <div className="absolute -inset-0.5 bg-linear-to-r from-orange-500 to-red-500 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-500"></div>
-                <div className="relative bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+                <div className="absolute -inset-0.5 bg-linear-to-r from-orange-500 to-red-500 rounded-lg blur opacity-0 group-hover:opacity-20 transition duration-500"></div>
+                <div className="relative bg-white dark:bg-gray-900 rounded-lg p-6 shadow-sm border border-gray-100 dark:border-gray-800">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                         <div>
