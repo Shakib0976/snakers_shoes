@@ -12,7 +12,10 @@ import {
     CircleHelpIcon,
     CircleIcon,
     Navigation,
-    Globe,
+    ChevronDown,
+    ChevronUp,
+    Sun,
+    Moon,
 } from "lucide-react";
 import {
     NavigationMenu,
@@ -22,15 +25,19 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { useTheme } from "next-themes";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [language, setLanguage] = useState("EN");
     const [isDarkTheme, setIsDarkTheme] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
+    const { theme, setTheme } = useTheme();
 
     const toggleLanguage = () => setLanguage((prev) => (prev === "EN" ? "BN" : "EN"));
     const toggleTheme = () => setIsDarkTheme((prev) => !prev);
+
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -40,7 +47,7 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-  
+
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -50,7 +57,7 @@ const Navbar = () => {
         setOpen(false);
     };
 
-   
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -66,7 +73,7 @@ const Navbar = () => {
         <div className="w-full ">
             {/* Top Bar */}
             <div className="hidden w-11/12 mx-auto lg:flex  text-sm">
-                <div className="bg-primary text-primary w-1/2 flex items-center justify-between px-8 py-1">
+                <div className="bg-primary  text-primary w-1/2 flex items-center justify-between px-8 py-1">
                     <p className="flex items-center gap-2">
                         <span className="font-semibold flex gap-1">
                             <Navigation size={20} /> 7 Days A Week
@@ -80,12 +87,12 @@ const Navbar = () => {
                         Call Us: <span className="font-semibold">610-403-403</span>
                     </div>
                     <div className="relative" ref={dropdownRef}>
-                        {/* 🌐 Main Button */}
+                        {/*  Main Button */}
                         <button
                             onClick={toggleDropdown}
-                            className="flex items-center hover-button gap-1 px-3 py-1 text-sm border rounded-md bg-primary transition-colors"
+                            className="flex items-center hover-button gap-1 px-3 py-1 text-sm bg-primary transition-colors"
                         >
-                            <Globe size={16} /> {language === "EN" ? "English" : "বাংলা"}
+                            {open ? <ChevronUp size={16} /> : <ChevronDown size={16} />}  {language === "EN" ? "English" : "বাংলা"}
                         </button>
 
                         {/* Dropdown Menu */}
@@ -110,11 +117,16 @@ const Navbar = () => {
                     </div>
 
                     <button
+                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                         className="flex hover-button items-center gap-1 px-3 py-1 text-sm border rounded-md hover-secondary transition-colors"
-                        onClick={toggleTheme}
+
                     >
-                        {isDarkTheme ? "☀️ Light" : "🌙 Dark"}
+
+
+                        {theme === "dark" ? <Sun className="w-4 h-4 text-yellow-400" /> : <Moon className="w-4 h-4 text-white" />}
+                        {theme === "dark" ? "Light" : "Dark"}
                     </button>
+
                 </div>
             </div>
 
@@ -129,38 +141,69 @@ const Navbar = () => {
 
                     <NavigationMenu>
                         <NavigationMenuList className="hidden  lg:flex gap-6 font-bold">
+                            <NavigationMenuLink asChild>
+                                <Link
+                                    href="/"
+                                    className="px-3 py-2 rounded-md text-sm font-semibold"
+                                >
+                                    Home
+                                </Link>
+                            </NavigationMenuLink>
                             <NavigationMenuItem>
-                                <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+                                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
                                 <NavigationMenuContent>
                                     <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                                        <li className="row-span-3">
+                                        <li className="row-span-3 ">
                                             <NavigationMenuLink asChild>
                                                 <Link
-                                                    href="/"
+                                                    href="/ManProducts"
                                                     className="flex flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-4 md:p-6 no-underline outline-none transition-all duration-200 hover:shadow-md"
                                                 >
-                                                    <div className="mb-2 text-lg font-medium sm:mt-4">
-                                                        shadcn/ui
-                                                    </div>
-                                                    <p className="text-muted-foreground text-sm leading-tight">
-                                                        Beautifully designed components built with Tailwind CSS.
-                                                    </p>
+                                                    <h1 className="mb-2 text-lg font-medium sm:mt-4">
+                                                        Man
+                                                    </h1>
+
                                                 </Link>
+
+
+
                                             </NavigationMenuLink>
+
+                                        </li>
+                                        <li className="row-span-3 ">
+                                            <NavigationMenuLink asChild>
+                                                <Link
+                                                    href="/WomanProducts"
+                                                    className=" justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-4 md:p-6 no-underline outline-none transition-all duration-200 hover:shadow-md"
+                                                >
+                                                    <h1 className="mb-2 text-lg font-medium sm:mt-4">
+                                                        Woman
+                                                    </h1>
+
+                                                </Link>
+
+
+
+                                            </NavigationMenuLink>
+
                                         </li>
                                     </ul>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
 
                             <NavigationMenuItem>
-                                <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                                <NavigationMenuTrigger>New Arrivals</NavigationMenuTrigger>
                                 <NavigationMenuContent>
                                     <ul className="grid gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                                        <li>
-                                            <Link href="#" className="block p-2 hover:bg-gray-100 rounded-md">
-                                                Example Component 1
-                                            </Link>
-                                        </li>
+                                        <Link
+                                            href="/NewProducts"
+                                            className=" justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-4 md:p-6 no-underline outline-none transition-all duration-200 hover:shadow-md"
+                                        >
+                                            <h1 className="mb-2 text-lg font-medium sm:mt-4">
+                                                New Arrivals
+                                            </h1>
+
+                                        </Link>
                                     </ul>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
@@ -172,31 +215,18 @@ const Navbar = () => {
                                         <li>
                                             <NavigationMenuLink asChild>
                                                 <Link href="#" className="flex items-center gap-2">
-                                                    <CircleHelpIcon /> Backlog
+                                                    More Products
                                                 </Link>
                                             </NavigationMenuLink>
                                         </li>
-                                        <li>
-                                            <NavigationMenuLink asChild>
-                                                <Link href="#" className="flex items-center gap-2">
-                                                    <CircleIcon /> To Do
-                                                </Link>
-                                            </NavigationMenuLink>
-                                        </li>
-                                        <li>
-                                            <NavigationMenuLink asChild>
-                                                <Link href="#" className="flex items-center gap-2">
-                                                    <CircleCheckIcon /> Done
-                                                </Link>
-                                            </NavigationMenuLink>
-                                        </li>
+                                      
                                     </ul>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
 
-                    <div className="hidden px-4 font-bold py-4 w-[40%] lg:flex bg-gray-100 justify-between items-center gap-6 text-sm rounded-lg">
+                    <div className="hidden px-4 font-bold py-4 w-[40%] lg:flex nav-bg-base justify-between items-center gap-6 text-sm rounded-lg">
                         <div className="relative flex items-center flex-1">
                             <Search size={18} className="absolute left-3" />
                             <input
