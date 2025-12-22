@@ -54,7 +54,7 @@ export default function DiscountBanner() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold leading-tight"
+                            className="text-3xl sm:text-5xl merriweather-font md:text-6xl lg:text-6xl font-extrabold leading-tight"
                         >
                             MEGA
                             <span className="block discount-bg-secondary bg-clip-text text-transparent">
@@ -67,7 +67,7 @@ export default function DiscountBanner() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
-                            className="text-base sm:text-xl text-gray-300 leading-relaxed"
+                            className="text-base sm:text-xl text-gray-300 leading-relaxed merriweather-font"
                         >
                             Up to <span className="font-bold discount-text-primary">50% OFF</span> on premium footwear collection. Limited time offer on all running, casual, and sports shoes.
                         </motion.p>

@@ -5,10 +5,10 @@
   /* Black → Dark Gray → Light Gray → Dark Gray → Black */
   background: linear-gradient(90deg,
       #000000 0%,
-      #2c2c2c 20%,
-      #3e3838 40%,
-      #524d4d 60%,
-      #2c2c2c 80%,
+      #645f5f 20%,
+      #504545 40%,
+      #221f1f 60%,
+      #3d3b3b 80%,
       #000000 100%);
 
   background-size: 200%;
@@ -16,7 +16,7 @@
   -webkit-text-fill-color: transparent;
 
   /* Slow, smooth shine */
-  animation: shine 10s ease-out forwards;
+  animation: shine 10s linear infinite;
 }
 
 @keyframes shine {

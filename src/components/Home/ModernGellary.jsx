@@ -55,7 +55,7 @@ const SneakerMosaicGallery = () => {
 
   return (
     <>
-      <section className="relative max-w-11/12 mx-auto px-4 py-20">
+      <section className="relative max-w-11/12 mx-auto px-4  pt-20 lg:pt-2 pb-20">
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <div className="absolute top-0 left-0 w-96 h-96 bg-linear-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-linear-to-tr from-orange-500/10 to-pink-500/10 rounded-full blur-3xl" />
@@ -63,25 +63,14 @@ const SneakerMosaicGallery = () => {
 
         <div className="text-center mb-12">
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
-          >
-            <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Sneaker Gallery
-            </span>
-          </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
-          >
-            Explore our curated collection through stunning visuals
-          </motion.p>
+
+          <h1 className="text-4xl mb-5 font-light Title-text-primary merriweather-font">
+            Sneaker <span className="font-medium">Gallery</span>
+          </h1>
+
+          <p className="Discription-text-primary text-sm uppercase tracking-wider mb-2 merriweather-font"> Explore our curated collection through stunning visuals</p>
+
         </div>
 
 
@@ -212,8 +201,8 @@ const SneakerMosaicGallery = () => {
                   >
                     <Heart
                       className={`w-6 h-6 ${likedImages.includes(selectedImage.id)
-                          ? "fill-red-500 text-red-500"
-                          : "text-gray-600 dark:text-gray-400"
+                        ? "fill-red-500 text-red-500"
+                        : "text-gray-600 dark:text-gray-400"
                         }`}
                     />
                   </button>

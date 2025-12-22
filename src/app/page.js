@@ -4,6 +4,7 @@ import HeroSection from "@/components/Home/HeroSection";
 import HowtoBooking from "@/components/Home/HowToBooking";
 import SneakerMosaicGallery from "@/components/Home/ModernGellary";
 import ReviewsGrid from "@/components/Home/ReviewGrid";
+import SnakersVideo from "@/components/Home/SnakersVideo";
 import TrendingSneakers from "@/components/Home/TrendingSneakers";
 
 const page = () => {
@@ -14,6 +15,7 @@ const page = () => {
       <DiscountBanner></DiscountBanner>
       <FeaturedCollections></FeaturedCollections>
       <TrendingSneakers></TrendingSneakers>
+      <SnakersVideo></SnakersVideo>
       <HowtoBooking></HowtoBooking>
       <ReviewsGrid></ReviewsGrid>
     </div>

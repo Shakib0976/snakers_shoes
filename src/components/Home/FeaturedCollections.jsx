@@ -61,9 +61,11 @@ export default function FeaturedCollections() {
                     className="text-center mb-16"
                 >
 
-                    <h2 className="text-5xl font-bold tranding-secondry-text  mb-6">
-                        Featured <span className=" title_text-gradient bg-clip-text text-transparent">Collections</span>
-                    </h2>
+
+                    <p className="Discription-text-primary text-sm uppercase tracking-wider mb-2 merriweather-font">Sneakers</p>
+                    <h1 className="text-4xl mb-5 font-light Title-text-primary merriweather-font">
+                        Featured <span className="font-medium">Collection</span>
+                    </h1>
 
 
                     {/* Stats */}
@@ -97,18 +99,18 @@ export default function FeaturedCollections() {
                                 className="group relative"
                             >
 
-                                <div className={`relative bg-${item.bgGradient} rounded-lg p-6 h-full border border-gray-200/50 overflow-hidden transition-all duration-500 shadow-sm group-hover:scale-102`}>
+                                <div className={`relative primary-card-bg rounded-lg p-6 h-full border border-gray-200/50 overflow-hidden transition-all duration-500 shadow-sm group-hover:scale-103`}>
 
 
                                     {item.discount && (
-                                        <div className={`absolute top-4 right-4 bg-linear-to-r ${item.gradient} text-primary px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg`}>
+                                        <div className={`absolute top-4 right-4   px-3 py-1 rounded-full text-xs font-bold badge1-text`}>
                                             {item.discount}
                                         </div>
                                     )}
 
 
                                     {item.featured && (
-                                        <div className="absolute top-4 left-4 collections-primary-bg text-primary px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg flex items-center gap-1">
+                                        <div className="absolute top-4 left-4 bg-amber-200  badge2-bg text-primary px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg flex items-center gap-1">
                                             <Sparkles className="w-3 h-3" />
                                             Featured
                                         </div>
@@ -139,7 +141,7 @@ export default function FeaturedCollections() {
                                         </motion.div>
 
 
-                                        <div className={`absolute inset-0 bg-linear-to-r ${item.gradient} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 rounded-full`}></div>
+                                        <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 rounded-full`}></div>
                                     </div>
 
 
@@ -147,7 +149,7 @@ export default function FeaturedCollections() {
                                         {item.tags.map((tag, tagIndex) => (
                                             <span
                                                 key={tagIndex}
-                                                className="px-2 py-1 bg-secondary/80 backdrop-blur-sm text-xs font-medium treanding-primary-text rounded-full border border-gray-200"
+                                                className="px-2 py-1 bg-blue-200  backdrop-blur-sm text-xs font-medium text-gray-800 rounded-2xl border border-gray-200"
                                             >
                                                 {tag}
                                             </span>
@@ -165,7 +167,7 @@ export default function FeaturedCollections() {
 
                                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                             <Link href={`/Product/${item.id}`}
-                                              
+
                                                 className={`w-full flex items-center justify-center gap-2 text-sm font-semibold bg-linear-to-r ${item.gradient} text-primary px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group/btn`}
                                             >
                                                 Explore Collection

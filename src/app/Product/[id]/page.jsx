@@ -53,18 +53,18 @@ const ProductDetailsPage = ({ params }) => {
 
 
     return (
-        <div className="min-h-screen bg-white w-11/12 mx-auto">
+        <div className="min-h-screen bg-secondary ">
             {/* Breadcrumb */}
             <div className="container mx-auto px-4 py-4">
-                <nav className="flex items-center text-sm text-gray-600 mb-6">
-                    <Link href="/" className="hover:text-gray-900">Home</Link>
+                <nav className="flex items-center text-sm Hero-title-text mb-6">
+                    <Link href="/" className="hover:text-gray-900 dark:hover:text-gray-300">Home</Link>
                     <ChevronLeft className="w-4 h-4 mx-2" />
-                    <span className="text-gray-900 font-medium">White Viscose Straight</span>
+                    <span className="font-medium">White Viscose Straight</span>
                 </nav>
             </div>
 
             {/* Main Product Section */}
-            <div className="container mx-auto px-4 pb-16">
+            <div className="w-11/12  mx-auto px-4 pb-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div className="md:flex md:gap-4 ">
                         {/* Thumbnail Images */}
@@ -73,7 +73,7 @@ const ProductDetailsPage = ({ params }) => {
                                 <button
                                     key={image.id}
                                     onClick={() => setSelectedImage(index)}
-                                    className={`relative w-20 h-20 rounded-md overflow-hidden border-2 ${selectedImage === index ? 'border-black' : 'border-gray-200'
+                                    className={`relative w-20 h-20 rounded-md details-img-bg overflow-hidden border-2 ${selectedImage === index ? 'border-black' : 'border-gray-200'
                                         }`}
                                 >
                                     <Image
@@ -87,7 +87,7 @@ const ProductDetailsPage = ({ params }) => {
                             ))}
                         </div>
                         {/* Main Image */}
-                        <div className="relative h-[500px] bg-gray-50 rounded-lg overflow-hidden mb-4 flex-1">
+                        <div className="relative h-[500px] details-img-bg  rounded-lg overflow-hidden mb-4 flex-1">
                             <Image
                                 src={productImages[selectedImage].src}
                                 alt={productImages[selectedImage].alt}
@@ -110,11 +110,11 @@ const ProductDetailsPage = ({ params }) => {
                     <div>
 
                         <div className="mb-6">
-                            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                            <h1 className="text-3xl font-bold  mb-2">
                                 {product.name}
                             </h1>
                             <div className="flex items-center justify-between">
-                                <span className="text-gray-500 text-sm">SKU: {product.sku}</span>
+                                <span className="detailsPage-text-primary text-sm">SKU: {product.sku}</span>
                                 <div className="flex items-center">
                                     <div className="flex text-amber-400 mr-2">
                                         {[...Array(5)].map((_, i) => (
@@ -135,7 +135,7 @@ const ProductDetailsPage = ({ params }) => {
                         {/* Price Section */}
                         <div className="mb-6">
                             <div className="flex items-baseline gap-3 mb-2">
-                                <span className="text-4xl font-bold text-gray-900">TK. {product.price}</span>
+                                <span className="text-4xl font-bold ">TK. {product.price}</span>
                                 <span className="text-lg text-gray-400 line-through">TK. {product.originalPrice}</span>
                                 <span className="text-sm font-bold text-red-600 bg-red-50 px-2 py-1 rounded">
                                     {product.discount} OFF
@@ -144,14 +144,14 @@ const ProductDetailsPage = ({ params }) => {
                             <div className="flex items-center gap-2">
                                 <span className="text-green-600 text-sm font-medium">{product.vat}</span>
                                 <span className="text-gray-400 text-sm">•</span>
-                                <span className="text-gray-600 text-sm">Inclusive of all taxes</span>
+                                <span className="detailsPage-text-primary text-sm">Inclusive of all taxes</span>
                             </div>
                         </div>
 
                         {/* Size Selection */}
                         <div className="mb-8">
                             <div className="flex items-center justify-between mb-4">
-                                <h3 className="font-semibold text-gray-900">Size</h3>
+                                <h3 className="font-semibold ">Size</h3>
                                 <button className="text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1">
                                     <span>Size Chart</span>
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -174,7 +174,7 @@ const ProductDetailsPage = ({ params }) => {
                                 ))}
                             </div>
                             {/* Color Section Images */}
-                            <h3 className="font-semibold text-gray-900 mt-2">Color</h3>
+                            <h3 className="font-semibold  mt-2">Color</h3>
                             <div className="flex  my-2 flex-row gap-3">
 
                                 {productImages.map((image, index) => (
@@ -238,7 +238,7 @@ const ProductDetailsPage = ({ params }) => {
                         </div>
 
 
-                        <div className="mb-8 p-4 bg-blue-50 rounded-lg">
+                        <div className="mb-8 p-4 bg-blue-50  rounded-lg">
                             <div className="flex items-center gap-3 mb-2">
                                 <Truck className="w-5 h-5 text-blue-600" />
                                 <span className="font-medium text-blue-900">{product.deliveryInfo}</span>
@@ -262,18 +262,18 @@ const ProductDetailsPage = ({ params }) => {
 
 
                         <div className="mb-8">
-                            <h3 className="font-semibold text-gray-900 mb-3">Product Info</h3>
+                            <h3 className="font-semibold  mb-3">Product Info</h3>
                             <div className="space-y-4">
                                 <div className="border-b pb-4">
-                                    <h4 className="font-medium text-gray-900 mb-2">Product details</h4>
-                                    <p className="text-gray-600 text-sm">{product.description}</p>
+                                   
+                                    <p className="detailsPage-text-primary text-sm">{product.description}</p>
                                 </div>
 
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-2">Features</h4>
+                                    <h4 className="font-medium  mb-2">Features</h4>
                                     <ul className="space-y-2">
                                         {product.features.map((feature, index) => (
-                                            <li key={index} className="flex items-center text-sm text-gray-600">
+                                            <li key={index} className="flex items-center text-sm detailsPage-text-primary">
                                                 <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                                 </svg>
@@ -286,7 +286,7 @@ const ProductDetailsPage = ({ params }) => {
                         </div>
 
 
-                        <div className="text-xs text-gray-500 text-center">
+                        <div className="text-xs detailsPage-text-primary text-center">
                             <p>Product color may slightly vary, depending on your  screen resolution</p>
                         </div>
                     </div>

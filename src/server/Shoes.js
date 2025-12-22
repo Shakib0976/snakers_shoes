@@ -7,9 +7,9 @@ export const shoes = [
         trademark: "Nike",
         description: "The Edge Shoes provide exceptional comfort with advanced cushioning, ideal for running and casual wear. Lightweight, durable, and stylish.",
         parts: [
-            { title: "Heel Part", img: "/man.png", top: "15%", left: "-8%" },
+            { title: "Heel Part", img: "/man.png", top: "20%", left: "10%" },
             { title: "Shoe Lace", img: "/man.png", top: "28%", left: "30%" },
-            { title: "Toe Cap", img: "/man.png", bottom: "10%", left: "45%" },
+            { title: "Toe Cap", img: "/man.png", bottom: "10%", left: "60%" },
         ],
     },
     {
@@ -21,7 +21,7 @@ export const shoes = [
         description: "Flex Pro shoes are designed for high performance with flexible soles, breathable material, and superior grip for all-day activities.",
         parts: [
             { title: "Heel", img: "/man2.png", top: "5%", left: "35%" },
-            { title: "Lace", img: "/man2.png", top: "45%", left: "-10%" },
+            { title: "Lace", img: "/man2.png", top: "45%", left: "5%" },
             { title: "Toe Shield", img: "/man2.png", bottom: "12%", left: "48%" },
         ],
     },
@@ -47,7 +47,7 @@ export const shoes = [
         description: "Flex Pro shoes are designed for high performance with flexible soles, breathable material, and superior grip for all-day activities.",
         parts: [
             { title: "Heel", img: "/man2.png", top: "5%", left: "35%" },
-            { title: "Lace", img: "/man2.png", top: "45%", left: "-10%" },
+            { title: "Lace", img: "/man2.png", top: "45%", left: "10%" },
             { title: "Toe Shield", img: "/man2.png", bottom: "12%", left: "48%" },
         ],
     }

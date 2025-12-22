@@ -23,7 +23,7 @@ const styleVariants = {
         header: "text-4xl lg:text-5xl font-extrabold",
         accent: "from-red-500 to-orange-500 dark:from-red-400 dark:to-orange-400"
     },
-   
+
 };
 
 // SNEAKER STEPS DATA
@@ -116,7 +116,7 @@ const sneakerSteps = [
 
 const HowtoBooking = ({ variant = "modern" }) => {
     const styles = styleVariants[variant];
-    
+
     return (
         <MotionSection
             initial={{ opacity: 0 }}
@@ -134,18 +134,14 @@ const HowtoBooking = ({ variant = "modern" }) => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                    <h2 className={`${styles.header} tracking-tight mb-4`}>
-                        <span className={`bg-clip-text text-transparent title_text-gradient`}>
-                            How to Get Your Sneakers
-                        </span>
-                    </h2>
 
-                    <MotionDiv
-                        initial={{ width: 0 }}
-                        whileInView={{ width: 120 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className={`h-1.5 title_text-gradient rounded-full mx-auto mb-4`}
-                    />
+
+                    <h1 className="text-4xl font-light mb-5 Title-text-primary merriweather-font">
+                        How to Get Your <span className="font-medium">Sneakers</span>
+                    </h1>
+                    <p className="Discription-text-primary text-sm merriweather-font uppercase tracking-wider mb-2"> From browsing to doorstep, getting your perfect pair has never <br /> been easier.
+                        Follow these simple steps to own your dream sneakers.</p>
+
                 </MotionDiv>
 
                 <MotionDiv
@@ -155,16 +151,14 @@ const HowtoBooking = ({ variant = "modern" }) => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
                     <p className="text-lg lg:text-xl treanding-primary-text  max-w-2xl mx-auto leading-relaxed">
-                        From browsing to doorstep, getting your perfect pair has never been easier. 
-                        Follow these simple steps to own your dream sneakers.
+
                     </p>
                 </MotionDiv>
             </div>
 
             <div className="relative">
-                <div className={`grid grid-cols-1  ${
-                    sneakerSteps.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
-                } gap-8 lg:gap-8`}>
+                <div className={`grid grid-cols-1  ${sneakerSteps.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
+                    } gap-8 lg:gap-8`}>
                     {sneakerSteps.map((step, index) => (
                         <StepCard
                             key={step.number}

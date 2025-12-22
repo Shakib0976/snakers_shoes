@@ -23,13 +23,13 @@ export default function HeroSection() {
     const shoe = shoes[current];
 
     return (
-        <div className="bg-secondary">
+        <div className="bg-secondary poppins-font">
             <section className="relative bg-teal  w-11/12 pt-5 lg:pt-10  mx-auto  overflow-hidden">
                 {/* HEADER TEXT */}
                 <div className="">
                     <div className="text-center">
                         <motion.h1
-                            className="shine-text text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] font-extrabold leading-none tracking-tight"
+                            className="dark:text-gray-300 merriweather-font  text-gray-900 text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] font-extrabold leading-none tracking-tight"
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
@@ -39,15 +39,15 @@ export default function HeroSection() {
 
 
 
-                        <p className="Hero-title-text sm:text-lg  font-medium mt-2 ">
+                        <p className="Hero-title-text sm:text-lg  font-medium mt-2 merriweather-font">
                             Sneakers 2023 Limited Edition
                         </p>
                     </div>
 
                     {/* MAIN CONTENT */}
-                    <div className="flex flex-col lg:flex-row justify-between lg:-mt-20 items-center px-4 sm:px-8 lg:px-12 lg:py-12 sm:pb-16 gap-10 sm:gap-16">
+                    <div className="flex flex-col lg:h-[95vh] lg:flex-row justify-between lg:-mt-20 items-center px-4 sm:px-8 lg:px-12 lg:py-20 sm:pb-16 gap-10 sm:gap-16">
                         {/* RIGHT SIDE IMAGE + TAGS */}
-                        <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-[60vh] mx-auto flex items-center justify-center">
+                        <div className="relative  w-full lg:w-1/2 h-[50vh] lg:h-[60vh] mx-auto flex items-center justify-center">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={shoe?.id}
@@ -55,7 +55,7 @@ export default function HeroSection() {
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: -30, scale: 0.95 }}
                                     transition={{ duration: 0.6 }}
-                                    className="absolute inset-0"
+                                    className="absolute inset-0  "
                                 >
                                     <Image
                                         src={shoe?.image}
@@ -75,19 +75,19 @@ export default function HeroSection() {
                                     animate={{ opacity: 1, scale: 1, y: 0 }}
                                     exit={{ opacity: 0, scale: 0.8, y: -20 }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="absolute z-50 hidden lg:flex flex-col items-center"
+                                    className="absolute  z-100 hidden lg:flex flex-col items-center"
                                     style={{
                                         top: part.top,
                                         bottom: part.bottom,
                                         left: part.left,
                                     }}
                                 >
-                                    <div className="bg-secondary rounded-full shadow-lg p-1.5">
+                                    <div className="dark:bg-gray-700  bg-white  rounded-full shadow-lg p-1.5">
                                         <Plus size={14} className="text-secondary" />
                                     </div>
 
                                     {/* Card with full-width hover button */}
-                                    <div className="relative group bg-secondary shadow-lg rounded-xl mt-2 w-32 sm:w-35 overflow-hidden transition-all">
+                                    <div className="relative dark:bg-gray-700 bg-white  group  shadow-lg rounded-xl mt-2 w-32 sm:w-35 overflow-hidden transition-all">
                                         {/* Content */}
                                         <div className="p-2 flex  items-center justify-between">
                                             <Image

@@ -11,7 +11,7 @@ const TrendingSneakers = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
- 
+
 
   const bestSellers = trendingSneakers.filter(item =>
     item.badge === "BEST SELLER" || item.rating >= 4.8
@@ -55,7 +55,7 @@ const TrendingSneakers = () => {
 
   const ProductCard = ({ product, index }) => (
     <div
-      className="group  relative Nav-bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+      className="group  relative primary-card-bg rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
       style={{
         animationDelay: `${index * 100}ms`,
         animation: isVisible ? `fadeInUp 0.6s ease-out ${index * 100}ms both` : 'none'
@@ -72,17 +72,7 @@ const TrendingSneakers = () => {
         </span>
       </div>
 
-      <div className="absolute top-4 right-4 z-10">
-        <button
-          type="button"
-          className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-primary transition-all duration-300 group/heart"
-          aria-label="Add to wishlist"
-        >
-          <svg className="w-4 h-4 group-hover/heart:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-          </svg>
-        </button>
-      </div>
+
 
       <div className="relative h-64 img-primary-bg overflow-hidden">
         <div className="relative w-full h-full">
@@ -94,7 +84,7 @@ const TrendingSneakers = () => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        
+
       </div>
 
       <div className="p-6">
@@ -147,7 +137,7 @@ const TrendingSneakers = () => {
 
         <div className="flex space-x-2">
           <Link href={`/Product/${product.id}`}
-            className="flex-1 bg-gray-900 text-primary py-3 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2"
+            className="flex-1 button-base-bg  text-primary py-3 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -160,15 +150,14 @@ const TrendingSneakers = () => {
   );
 
   return (
-    <section ref={sectionRef} className="relative w-11/12 mx-auto pt-20 overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
+    <section ref={sectionRef} className=" mx-auto overflow-hidden pt-20 bg-linear-to-b dark:from-gray-800 dark:to-gray-900">
+      <div className="w-11/12 mx-auto px-4 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-16">
-        
-          <h2 className="text-5xl font-bold tranding-secondry-text  mb-6">
-            Premium <span className=" title_text-gradient bg-clip-text text-transparent">Sneaker Collection</span>
-          </h2>
-
+        <div className="text-center mb-5">
+          <p className="Discription-text-primary text-sm uppercase tracking-wider mb-2 merriweather-font">Sneaker</p>
+          <h1 className="text-4xl font-light Title-text-primary merriweather-font">
+            Premium Sneaker <span className="font-medium">Collection</span>
+          </h1>
         </div>
 
         {/* Tab Navigation */}
@@ -200,8 +189,8 @@ const TrendingSneakers = () => {
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-6 py-4 font-semibold transition-all duration-300 relative flex items-center justify-center space-x-2 ${activeTab === tab.id
-                      ? 'text-black border-b-2 border-black'
-                      : 'text-gray-500 hover:text-black'
+                    ? 'text-black dark:text-white dark:border-white border-b-2 border-black'
+                    : 'text-gray-500 dark:text-gray-300 hover:dark:text-white hover:text-black'
                     }`}
                 >
                   <div className="flex items-center space-x-2">
@@ -219,7 +208,7 @@ const TrendingSneakers = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {getProductsByTab().map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}
