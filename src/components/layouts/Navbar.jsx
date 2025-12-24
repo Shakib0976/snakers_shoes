@@ -6,10 +6,7 @@ import {
     Search,
     ShoppingCart,
     User,
-    X,
-    CircleCheckIcon,
-    CircleHelpIcon,
-    CircleIcon,
+    X, 
     Navigation,
     ChevronDown,
     ChevronUp,
@@ -69,7 +66,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="w-full ">
+        <div className="w-full poppins-font">
             {/* Top Bar */}
             <div className="hidden w-11/12 mx-auto lg:flex  text-sm">
                 <div className="bg-primary  text-primary w-1/2 flex items-center justify-between px-8 py-1">
@@ -136,7 +133,7 @@ const Navbar = () => {
             >
 
                 <div className={`flex justify-between  items-center ${isSticky ? "px-6" : "px-6 lg:px-16 "}`}>
-                    <div className="text-3xl font-extrabold tracking-widest">STEPS</div>
+                    <div className="text-3xl font-extrabold tracking-widest merriweather-font">STEPS</div>
 
                     <NavigationMenu>
                         <NavigationMenuList className="hidden  lg:flex gap-6 font-bold">
@@ -236,9 +233,9 @@ const Navbar = () => {
                         </div>
 
                         <div className="flex gap-6">
-                            <button className="flex hover-button items-center gap-1 hover:text-primary transition">
-                                <User size={22} /> My Profile
-                            </button>
+                            <Link href="/SignIn" className="flex hover-button items-center gap-1 hover:text-primary transition">
+                                <User size={22} /> Sign In
+                            </Link>
                             <button className="flex hover-button items-center gap-1 hover:text-primary transition">
                                 <ShoppingCart size={22} /> Cart(0)
                             </button>

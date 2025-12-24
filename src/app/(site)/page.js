@@ -7,19 +7,20 @@ import ReviewsGrid from "@/components/Home/ReviewGrid";
 import SnakersVideo from "@/components/Home/SnakersVideo";
 import TrendingSneakers from "@/components/Home/TrendingSneakers";
 
+
 const page = () => {
-  return (
-    <div className="bg-secondary ">
-      <HeroSection></HeroSection>
-      <SneakerMosaicGallery></SneakerMosaicGallery>
-      <DiscountBanner></DiscountBanner>
-      <FeaturedCollections></FeaturedCollections>
-      <TrendingSneakers></TrendingSneakers>
-      <SnakersVideo></SnakersVideo>
-      <HowtoBooking></HowtoBooking>
-      <ReviewsGrid></ReviewsGrid>
-    </div>
-  );
+    return (
+        <div className="bg-secondary ">
+            <HeroSection></HeroSection>
+            <SneakerMosaicGallery></SneakerMosaicGallery>
+            <DiscountBanner></DiscountBanner>
+            <FeaturedCollections></FeaturedCollections>
+            <TrendingSneakers></TrendingSneakers>
+            <SnakersVideo></SnakersVideo>
+            <HowtoBooking></HowtoBooking>
+            <ReviewsGrid></ReviewsGrid>
+        </div>
+    );
 };
 
 export default page;

@@ -55,7 +55,7 @@ const SneakerMosaicGallery = () => {
 
   return (
     <>
-      <section className="relative max-w-11/12 mx-auto px-4  pt-20 lg:pt-2 pb-20">
+      <section className="relative max-w-11/12 mx-auto px-4  pt-20 lg:pt-2 pb-20 poppins-font">
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <div className="absolute top-0 left-0 w-96 h-96 bg-linear-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-linear-to-tr from-orange-500/10 to-pink-500/10 rounded-full blur-3xl" />

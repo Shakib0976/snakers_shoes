@@ -174,6 +174,7 @@
     --foreground: oklch(0.1913 0 271.15);
 
     --background-secondary: oklch(0.986 0.005 244);
+    --signIn-bg-primary: oklch(0.9832 0.0054 286);
 
     --muted: oklch(0.96 0.008 240);
     --muted-foreground: oklch(0.55 0.03 260);
@@ -253,6 +254,7 @@
     --title-text-primary: oklch(0.9276 0.0059 264.66);
     --p-text-primary: oklch(0.729 0.0158 218.34);
     --btn-primary: #fb923c;
+    --signIn-bg-primary: oklch(0.2129 0.0304 261.27);
     --Nav-bg-primary: #0f172a;
     --Nav-bg-secondary: #1e293b;
     /* Slate-800 */
@@ -483,6 +485,10 @@
 
 .footer-text-primary {
     color: var(--footer-text-primary);
+}
+
+.SignIn-bg-primary {
+    background: var(--signIn-bg-primary);
 }
 
 .footer-border {

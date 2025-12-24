@@ -37,7 +37,7 @@ export default function DiscountBanner() {
     }, []);
 
     return (
-        <section className="w-11/12 mx-auto rounded-2xl min-h-screen relative overflow-hidden discount-banner-bg ">
+        <section className="w-11/12 mx-auto rounded-2xl min-h-screen relative overflow-hidden discount-banner-bg poppins-font ">
            
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

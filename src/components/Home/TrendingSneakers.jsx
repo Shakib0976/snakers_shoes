@@ -150,7 +150,7 @@ const TrendingSneakers = () => {
   );
 
   return (
-    <section ref={sectionRef} className=" mx-auto overflow-hidden pt-20 bg-linear-to-b dark:from-gray-800 dark:to-gray-900">
+    <section ref={sectionRef} className=" mx-auto overflow-hidden pt-20 bg-linear-to-b dark:from-gray-800 dark:to-gray-900 poppins-font">
       <div className="w-11/12 mx-auto px-4 relative z-10">
         {/* Header Section */}
         <div className="text-center mb-5">

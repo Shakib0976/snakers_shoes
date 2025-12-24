@@ -9,7 +9,7 @@ import { stats, testimonials } from "@/server/Review";
 
 const ReviewsGrid = () => {
     return (
-        <section className="relative max-w-11/12 overflow-hidden mx-auto px-4 py-16">
+        <section className="relative max-w-11/12 overflow-hidden mx-auto px-4 py-16 poppins-font">
             {/* Background */}
             <div className="absolute inset-0 bg-linear-to-br from-orange-50/20 to-red-50/20  -z-10" />
 

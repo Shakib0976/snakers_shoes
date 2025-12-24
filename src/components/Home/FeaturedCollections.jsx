@@ -49,7 +49,7 @@ export default function FeaturedCollections() {
     const startIndex = currentSlide % collections.length;
 
     return (
-        <section className="w-full py-24 featured-section-bg relative overflow-hidden">
+        <section className="w-full py-24 featured-section-bg relative overflow-hidden poppins-font">
 
 
             <div className="max-w-11/12 mx-auto px-6 relative z-10">

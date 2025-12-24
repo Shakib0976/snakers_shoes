@@ -41,7 +41,7 @@ const Footer = () => {
     ];
     return (
         <div>
-            <div className="border-t-2 footer-border  bg-gray-900  dark:bg-gray-800">
+            <div className="border-t-2 footer-border  bg-gray-900  dark:bg-gray-800 poppins-font">
                 <div className="max-w-11/12 mx-auto px-6 py-16">
                     <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
                         {/* Brand Section */}
@@ -51,7 +51,7 @@ const Footer = () => {
                                 <div>
 
                                     <h1 className="text-2xl font-bold">
-                                        <span className=" text-gray-100 ">
+                                        <span className=" text-gray-100 merriweather-font">
                                             STEPS
                                         </span>
                                     </h1>
@@ -74,7 +74,7 @@ const Footer = () => {
                                             href={social.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`w-10 h-10 bg-secondary  border-gray-700  rounded-xl flex items-center justify-center text-gray-300 transition-all duration-300 hover:border-emerald-300 hover:shadow-md ${social.color}`}
+                                            className={`w-10 h-10 bg-secondary  border-gray-700  rounded-xl flex items-center justify-center text-gray-800 transition-all duration-300 hover:border-emerald-300 hover:shadow-md ${social.color}`}
                                             aria-label={social.name}
                                         >
                                             {social.icon}
@@ -189,7 +189,7 @@ const Footer = () => {
                     </div>
                     <h1 className="text-[60px] xs:text-[80px] hidden lg:block sm:text-[120px] md:text-[160px] lg:text-[200px] xl:text-[250px] 
                w-full text-center font-bold leading-[0.8]">
-                        <span className="inline-block shine-text w-full py-2 px-4">
+                        <span className="inline-block shine-text w-full py-2 px-4 merriweather-font">
                             STEPS  SHOES
                         </span>
                     </h1>

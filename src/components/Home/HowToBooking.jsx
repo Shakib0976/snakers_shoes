@@ -123,7 +123,7 @@ const HowtoBooking = ({ variant = "modern" }) => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
-            className="relative max-w-11/12 mx-auto px-4 py-16 lg:py-20"
+            className="relative max-w-11/12 mx-auto px-4 py-16 lg:py-20 poppins-font"
         >
 
             <div className="relative text-center mb-16">
