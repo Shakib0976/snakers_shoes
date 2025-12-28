@@ -116,7 +116,7 @@ const SignIn = () => {
     return (
         <div className="min-h-screen max-w-10/12 mx-auto  grid grid-cols-1 lg:grid-cols-2 items-center  gap-10 px-6 poppins-font">
 
-            <div className="flex justify-center">
+            <div className="lg:flex justify-center hidden">
                 {
                     !isLogin ?   <AnimatedSneakerImage /> : <AnimatedSneakerImage2 />
                 }
@@ -127,15 +127,15 @@ const SignIn = () => {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
-                    className="relative z-10 w-full max-w-md  backdrop-blur-2xl p-8 sm:p-10 "
+                    className="relative z-10 w-full  lg:max-w-md  backdrop-blur-2xl p-8 sm:p-10 "
                 >
 
                     <div className="text-center">
 
-                        <h2 className="mt-8 text-5xl font-bold tracking-tight text-gray-900 dark:text-white merriweather-font">
+                        <h2 className="mt-8  text-2xl lg:text-5xl font-bold tracking-tight text-gray-900 dark:text-white merriweather-font">
                             {isLogin ? "Welcome Back" : "Create Account"}
                         </h2>
-                        <p className="mt-2 text-lg text-gray-600 dark:text-gray-400 mb-10">
+                        <p className="mt-2 text-sm  lg:text-lg text-gray-600 dark:text-gray-400 mb-10">
                             {isLogin
                                 ? "Sign in to continue with "
                                 : "Register to get started with "}

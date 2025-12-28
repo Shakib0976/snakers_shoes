@@ -6,7 +6,7 @@ import {
     Search,
     ShoppingCart,
     User,
-    X, 
+    X,
     Navigation,
     ChevronDown,
     ChevronUp,
@@ -140,7 +140,7 @@ const Navbar = () => {
                             <NavigationMenuLink asChild>
                                 <Link
                                     href="/"
-                                    className="px-3 py-2 rounded-md text-sm font-semibold"
+                                    className="px-3 py-2 rounded-md text-sm dark:text-gray-300 text-gray-800 font-thin"
                                 >
                                     Home
                                 </Link>
@@ -203,22 +203,15 @@ const Navbar = () => {
                                     </ul>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
+                            <NavigationMenuLink asChild>
+                                <Link
+                                    href="/Support"
+                                    className="px-3 py-2 rounded-md text-sm dark:text-gray-300 text-gray-800 font-thin"
+                                >
+                                    Support
+                                </Link>
+                            </NavigationMenuLink>
 
-                            <NavigationMenuItem>
-                                <NavigationMenuTrigger>More</NavigationMenuTrigger>
-                                <NavigationMenuContent>
-                                    <ul className="grid w-[300px] gap-3 p-3">
-                                        <li>
-                                            <NavigationMenuLink asChild>
-                                                <Link href="#" className="flex items-center gap-2">
-                                                    More Products
-                                                </Link>
-                                            </NavigationMenuLink>
-                                        </li>
-                                      
-                                    </ul>
-                                </NavigationMenuContent>
-                            </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
 
@@ -236,9 +229,9 @@ const Navbar = () => {
                             <Link href="/SignIn" className="flex hover-button items-center gap-1 hover:text-primary transition">
                                 <User size={22} /> Sign In
                             </Link>
-                            <button className="flex hover-button items-center gap-1 hover:text-primary transition">
+                            <Link href={'/Cart'} className="flex hover-button items-center gap-1 hover:text-primary transition">
                                 <ShoppingCart size={22} /> Cart(0)
-                            </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -261,9 +254,9 @@ const Navbar = () => {
                         <button className="flex  hover-button items-center gap-1 text-sm hover-button">
                             <User size={18} /> My Profile
                         </button>
-                        <button className="flex hover-button items-center gap-1 text-sm hover-button">
+                        <Link href={'/ChartsProducts'} className="flex hover-button items-center gap-1 text-sm hover-button">
                             <ShoppingCart size={18} /> Cart(0)
-                        </button>
+                        </Link>
 
                         <button
                             className="flex hover-button items-center gap-1 px-3 py-1 text-sm border rounded-md hover-secondary transition-colors"

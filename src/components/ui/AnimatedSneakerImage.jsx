@@ -13,7 +13,7 @@ const AnimatedSneakerImage = () => {
     const [rotation, setRotation] = useState(0);
 
     return (
-        <div className="relative w-full bg-gray-200 pl-2 max-w-3xl mx-auto p-8 rounded-r-full overflow-hidden ">
+        <div className="relative w-full bg-gray-200 dark:bg-gray-900 pl-2 max-w-3xl mx-auto p-8 rounded-r-full overflow-hidden ">
 
             <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
                 <Link
@@ -27,12 +27,12 @@ const AnimatedSneakerImage = () => {
                             transition={{ type: "spring", stiffness: 300 }}
                             className="absolute inset-0 flex items-center justify-center"
                         >
-                            <ArrowBigLeft className="w-6 h-6 text-white" />
+                            <ArrowBigLeft className="w-6 h-6 text-white " />
                         </motion.div>
                     </div>
 
                     <span
-                        className="font-bold text-lg text-gray-900"
+                        className="font-bold text-lg text-gray-900 dark:text-gray-200"
                     >
                         STEPS SNEAKERS
                     </span>
