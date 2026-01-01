@@ -150,7 +150,7 @@ export default function NotFound() {
             <div className="relative">
               <h1 className="text-8xl md:text-[10rem] lg:text-[12rem] font-black tracking-tighter">
                 <span className="relative">
-                  <span className="bg-linear-to-br from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <span className="bg-gray-600 dark:bg-gray-400 bg-clip-text text-transparent">
                     404
                   </span>
                 </span>
@@ -184,7 +184,7 @@ export default function NotFound() {
           {/* Main message with typing effect */}
           <div className="mb-12 animate-in fade-in duration-1000 delay-300">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gray-700 dark:bg-gray-400 bg-clip-text text-transparent">
                 Page Not Found
               </span>
             </h2>
@@ -200,27 +200,8 @@ export default function NotFound() {
               >
                 Go Home
               </Link>
-              <div className="absolute -bottom-2 left-0 w-24 h-0.5 bg-linear-to-r from-blue-500 to-transparent animate-pulse" />
             </div>
           </div>
-        </div>
-
-
-
-        {/* Footer */}
-        <div className="text-center pt-8 border-t dark:border-gray-800/50 border-gray-800/10">
-          <p className="text-gray-500 text-sm">
-            Need help navigating?{" "}
-            <Link
-              href="/contact"
-              className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
-            >
-              Contact Mission Control
-            </Link>
-          </p>
-          <p className="text-gray-600 text-xs mt-2">
-            Error 404 • Cosmic Anomaly Detected • {new Date().toLocaleDateString()}
-          </p>
         </div>
       </div>
 
