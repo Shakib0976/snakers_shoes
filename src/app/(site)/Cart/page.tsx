@@ -396,7 +396,7 @@ const Cart = () => {
                                     </div>
                                 </div>
 
-                                <Link href="/CheckOut/:id">
+                                <Link href="/CheckOut">
                                  <button  className="w-full bg-gray-900
                                  text-white font-semibold py-3 px-4 rounded-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] mt-6">Checkout ({cartItems.filter(item => item.selected).length})</button>
                                 </Link>

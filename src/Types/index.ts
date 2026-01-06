@@ -1,12 +1,20 @@
+
 export interface CartItem {
   id: string;
+  store: string;
   name: string;
-  price: number;
-  quantity: number;
+  description?: string;
   originalPrice?: number;
+  discountPercentage?: number;
+  finalPrice: number;
+  image: string;
+  selected: boolean;
+  quantity: number;
+  comboOffer?: boolean;
+  price: number;
+
   discount?: number;
 }
-
 export interface OrderSummary {
   subtotal: number;
   discount: number;

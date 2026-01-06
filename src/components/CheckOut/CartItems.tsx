@@ -8,9 +8,9 @@ interface CartItemsProps {
 
 const CartItems = ({ items }: CartItemsProps) => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 ">
       {items.map((item) => (
-        <div key={item.id} className="flex items-center justify-between p-4 border rounded-xl">
+        <div key={item.id} className="flex  items-center justify-between p-4 border rounded-xl">
           <div className="flex items-center space-x-4">
             <div className="w-16 h-16 rounded-lg flex items-center justify-center">
             <Image src={'/man2.png'} alt={item.name} width={64} height={64} />

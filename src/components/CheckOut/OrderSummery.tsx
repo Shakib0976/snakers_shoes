@@ -1,25 +1,42 @@
 import { CartItem, OrderSummary } from '@/Types';
 import { CheckCircle, Lock } from 'lucide-react';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
+interface Totals {
+  totalPrice: number;
+  totalDiscount: number;
+}
 
 interface OrderSummaryProps {
   items: CartItem[];
-  summary: OrderSummary;
+  Totals: Totals;
   activeStep: 'items' | 'info' | 'payment';
   onProceed: () => void;
+  isDisabled?: boolean;
 }
 
-const AllOrderSummery = ({ items, summary, activeStep, onProceed }: OrderSummaryProps) => {
+const AllOrderSummery = ({ items, Totals, activeStep, onProceed, isDisabled = false }: OrderSummaryProps) => {
   const getButtonText = () => {
     switch (activeStep) {
       case 'items': return 'Proceed to Shipping';
       case 'info': return 'Continue to Payment';
-      case 'payment': return 'Pay $' + summary.total.toFixed(2);
+      case 'payment': return 'Pay $' + Totals.totalPrice.toLocaleString('en-BD');
       default: return 'Continue';
     }
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg sticky top-8">
+    <div className="cart-sec-bg rounded-xl shadow-lg sticky top-8">
       <div className="p-6 border-b">
         <h3 className="text-xl font-bold text-gray-800 flex items-center">
           <CheckCircle className="mr-2 text-green-600" size={20} />
@@ -39,22 +56,8 @@ const AllOrderSummery = ({ items, summary, activeStep, onProceed }: OrderSummary
                 <h4 className="font-medium text-gray-800">{item.name}</h4>
                 <div className="flex items-center space-x-2 mt-1">
                   <span className="text-sm text-gray-500">Quantity: {item.quantity}</span>
-                  {item.discount && (
-                    <span className="text-sm text-red-600 bg-red-50 px-2 py-0.5 rounded">
-                      -${item.discount}
-                    </span>
-                  )}
                 </div>
-              </div>
-              <div className="text-right">
-                <div className="font-semibold text-gray-900">
-                  ${item.price.toFixed(2)}
-                </div>
-                {item.originalPrice && (
-                  <div className="text-sm text-gray-400 line-through">
-                    ${item.originalPrice.toFixed(2)}
-                  </div>
-                )}
+                <h1><span className='font-bold'>Price:</span> {item.finalPrice}</h1>
               </div>
             </div>
           ))}
@@ -64,40 +67,66 @@ const AllOrderSummery = ({ items, summary, activeStep, onProceed }: OrderSummary
         <div className="space-y-3">
           <div className="flex justify-between text-gray-600">
             <span>Subtotal ({items.length} items)</span>
-            <span>${summary.subtotal.toFixed(2)}</span>
+            {/* <span>${summary.subtotal.toFixed(2)}</span> */}
           </div>
-          
+
           <div className="flex justify-between text-red-600">
-            <span>Discount</span>
-            <span>-${summary.discount.toFixed(2)}</span>
+            <span>Total Price</span>
+            <span>${Totals.totalPrice.toLocaleString('en-BD')}</span>
           </div>
-
           <div className="flex justify-between text-gray-600">
-            <span>Delivery Service</span>
-            <span>{summary.shipping === 0 ? 'Free' : `$${summary.shipping.toFixed(2)}`}</span>
+            <span>Total Discount</span>
+            <span>${Totals.totalDiscount.toLocaleString('en-BD')}</span>
           </div>
-
           <div className="flex justify-between text-gray-600">
-            <span>Tax (0%)</span>
-            <span>${summary.tax.toFixed(2)}</span>
-          </div>
-
-          <div className="border-t pt-4 mt-4">
-            <div className="flex justify-between text-lg font-bold">
-              <span>Total</span>
-              <span>${summary.total.toFixed(2)}</span>
-            </div>
+            <span>Total</span>
+            <span>${(Totals.totalPrice - Totals.totalDiscount).toLocaleString('en-BD')}</span>
           </div>
         </div>
 
         {/* Checkout Button */}
-        <button
-          onClick={onProceed}
-          className="w-full mt-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all flex items-center justify-center shadow-lg"
-        >
-          <Lock className="mr-2" size={20} />
-          {getButtonText()}
-        </button>
+
+
+        {
+          isDisabled ? <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <button
+                type="button"
+                className={`w-full flex justify-center font-semibold py-3 px-4 rounded-lg mt-6
+      transition-all transform bg-gray-400 cursor-not-allowed`}
+              >
+                <Lock className="mr-2" size={20} />
+                {getButtonText()}
+              </button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>
+                  Make Sure Complete to Fill This Form
+                </AlertDialogTitle>
+                <AlertDialogDescription>
+                  Please complete all required fields before proceeding to payment.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Okay</AlertDialogCancel>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+            : <button
+              onClick={onProceed}
+              disabled={isDisabled}
+              className={`w-full flex justify-center font-semibold py-3 px-4 rounded-lg mt-6
+    transition-all transform
+    ${isDisabled
+                  ? 'bg-gray-400 '
+                  : 'bg-gray-900 text-white hover:scale-[1.02] active:scale-[0.98]'
+                }`}
+            >
+              <Lock className="mr-2" size={20} />
+              {getButtonText()}
+            </button>
+        }
 
         {/* Security Note */}
         <p className="text-center text-xs text-gray-500 mt-4">

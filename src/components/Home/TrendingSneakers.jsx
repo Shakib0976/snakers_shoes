@@ -221,3 +221,4 @@ const TrendingSneakers = () => {
 };
 
 export default TrendingSneakers;
+
